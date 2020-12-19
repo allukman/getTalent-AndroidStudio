@@ -47,5 +47,6 @@
     <string name="sort_by_location">Sortir berdasarkan lokasi</string>
     <string name="sort_by_job_type1">Sortir berdasarkan freelance</string>
     <string name="sort_by_job_type2">Sortir berdasarkan fulltime</string>
+    <string name="daftar">Daftar</string>
 
 </resources>

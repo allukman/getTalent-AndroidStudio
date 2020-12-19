@@ -1,5 +1,6 @@
 package id.smartech.get_talent.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import id.smartech.get_talent.R
 import id.smartech.get_talent.databinding.FragmentEngineerProfileBinding
 import id.smartech.get_talent.helper.TabPagerAdaptor
+import id.smartech.get_talent.helper.WebviewActivity
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -31,7 +33,9 @@ class EngineerProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_engineer_profile, container, false)
-
+        binding.engGithub.setOnClickListener {
+            val intent = Intent (getActivity(), WebviewActivity::class.java)
+            getActivity()!!.startActivity(intent) }
 
         pagerAdapter = TabPagerAdaptor(childFragmentManager)
         binding.viewPager.adapter = pagerAdapter
