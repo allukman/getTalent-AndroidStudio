@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.FilterDialogFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+            <Button
+                android:id="@+id/sort_by_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_by_name"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/rectangle_border"/>
+
+            <Button
+                android:id="@+id/sort_by_skill"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_by_skill"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/rectangle_border"/>
+
+            <Button
+                android:id="@+id/sort_by_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_by_location"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/rectangle_border"/>
+
+            <Button
+                android:id="@+id/sort_by_job_type1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_by_job_type1"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/rectangle_border"/>
+
+            <Button
+                android:id="@+id/sort_by_job_type2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sort_by_job_type2"
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/rectangle_border"/>
+</LinearLayout>

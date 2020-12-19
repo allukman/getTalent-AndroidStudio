@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">Get-Talent</string>
+    <string name="on_board_text">Temukan Developer berbakat dan terbaik di berbagai bidang keahlian</string>
+    <string name="onboard_talent_login_text">Masuk sebagai pekerja</string>
+    <string name="onboard_company_login_text">masuk sebagai perekrut</string>
+    <string name="or">or</string>
+    <string name="sign_in">SIGN IN</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">Login</string>
+    <string name="lupa_kata_sandi">Lupa kata sandi?</string>
+    <string name="daftar_disini">daftar disini</string>
+    <string name="anda_belum_punya_akun">Anda belum punya akun?</string>
+    <string name="teks_nama_panjang">Masukan nama panjang</string>
+    <string name="teks_email">Masukan alamat email</string>
+    <string name="teks_handphone">Masukan no handphone</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="masukan_kata_sandi">Masukan kata sandi</string>
+    <string name="teks_confirm_password">Masukan konfirmasi kata sandi</string>
+    <string name="anda_sudah_punya_akun">anda sudah punya akun?</string>
+    <string name="masuk_disini">Masuk disini</string>
+    <string name="teks_company_name">Masukan nama perusahaan</string>
+    <string name="posisi_di_perusahaan_anda">Posisi di perusahaan anda</string>
+    <string name="text_reset_password">Masukkan email verifikasi akun pengguna kata sandi Anda dan kami akan mengirimkan tautan pengaturan ulang kata sandi</string>
+    <string name="text_confirm_password">Anda perlu mengubah kata sandi untuk mengaktifkan akun Anda</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="kirim_email_reset_password">Kirim email reset password</string>
+    <string name="silahkan_login_dengan_akun_anda">Silahkan login dengan akun Anda</string>
+    <string name="comdeskripsi">The Shelby Company Limited is a limited company owned by the Shelby Family. It is a successful business that continues to thrive through the 1920s.</string>
+    <string name="com_location">Banyumas, Jawa tengah</string>
+    <string name="company_email">shelbycompany@gmail.com</string>
+    <string name="git_teks">shelbycompany18</string>
+    <string name="ig_teks">shelby_18</string>
+    <string name="eng_deskripsi">Saya adalah orang yang bisa mengambil keputusan dengan cepat dan tepat, bahkan saat berada pada situasi genting atau di bawah tekanan.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tv_date_teks">Sen, 15 November 2020</string>
+    <string name="tv_name">John García</string>
+    <string name="greeting">Hai,</string>
+    <string name="job_title_1">Web Developer</string>
+    <string name="job_title_2">Android Developer</string>
+    <string name="eng_name">Thomas Shelby</string>
+    <string name="eng_name2">John Shelby</string>
+    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tortor sem, lobortis at aliquam lobortis, ultrices in eros. In nec velit tellus. Duis finibus molestie nisi. Sed eget diam sem. Pellentesque vitae magna facilisis</string>
+    <string name="sort_by_name">Sortir berdasarkan nama</string>
+    <string name="sort_by_skill">Sortir berdasarkan skill</string>
+    <string name="sort_by_location">Sortir berdasarkan lokasi</string>
+    <string name="sort_by_job_type1">Sortir berdasarkan freelance</string>
+    <string name="sort_by_job_type2">Sortir berdasarkan fulltime</string>
+
+</resources>
