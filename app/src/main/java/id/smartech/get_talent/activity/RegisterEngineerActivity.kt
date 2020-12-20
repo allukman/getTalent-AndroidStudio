@@ -34,10 +34,10 @@ class RegisterEngineerActivity : AppCompatActivity() {
 
             if(name.isEmpty() || email.isEmpty() || nohp.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Harap isi semua data terlebih dahulu", Toast.LENGTH_LONG).show()
-                binding.etAccEmail.requestFocus()
+                binding.etAccNama.requestFocus()
             } else if (password != confirmPassword) {
                 Toast.makeText(this, "Password dan konfirmasi password harus sama", Toast.LENGTH_LONG).show()
-                binding.etAccEmail.requestFocus()
+                binding.etAccNama.requestFocus()
             } else {
                 Toast.makeText(this, "Berhasil daftar", Toast.LENGTH_LONG).show()
                 saveSession(name, email, password)

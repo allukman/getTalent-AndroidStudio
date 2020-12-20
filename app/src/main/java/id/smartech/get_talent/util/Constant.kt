@@ -8,6 +8,7 @@ class Constant {
         val ACC_EMAIL = "ACC_EMAIL"
         val ACC_PASSWORD = "ACC_PASSWORD"
         val ACC_LEVEL = "ACC_LEVEL"
+        val COM_NAME = "COM_NAME"
 
     }
 }

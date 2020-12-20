@@ -40,6 +40,7 @@ class LoginEngineerActivity : AppCompatActivity() {
 
             val checkEmail = prefHelper.getString( Constant.ACC_EMAIL)
             val checkPassword = prefHelper.getString(Constant.ACC_PASSWORD)
+            val checkLevel = prefHelper.getInteger(Constant.ACC_LEVEL)
 
             if (email.isEmpty()) {
                 binding.etEmail.error = "Email tidak boleh kosong"
@@ -47,16 +48,33 @@ class LoginEngineerActivity : AppCompatActivity() {
             } else if (password.isEmpty()) {
                 binding.etPassword.error = "Password tidak boleh kosong"
                 binding.etPassword.requestFocus()
-            } else if (email != checkEmail || password != checkPassword) {
+            } else if (email != checkEmail || password != checkPassword || checkLevel != 1) {
                 Toast.makeText(this, "Email atau password salah", Toast.LENGTH_LONG).show()
             } else {
-                startActivity(Intent(this, EngineerMainActivity::class.java))
+                moveIntent()
+                saveSession()
             }
         }
 
     }
 
+    override fun onStart() {
+        super.onStart()
+        if (prefHelper.getBoolean(Constant.IS_LOGIN)) {
+            moveIntent()
+        }
+    }
+
+    private fun saveSession(){
+        prefHelper.put( Constant.IS_LOGIN, true )
+    }
+
     override fun onBackPressed() {
         startActivity(Intent(this, OnBoardActivity::class.java))
+    }
+
+    private fun moveIntent(){
+        startActivity(Intent(this, EngineerMainActivity::class.java))
+        finish()
     }
 }

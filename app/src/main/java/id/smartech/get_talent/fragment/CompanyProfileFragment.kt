@@ -1,5 +1,6 @@
 package id.smartech.get_talent.fragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -32,6 +33,14 @@ class CompanyProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_company_profile, container, false)
+
+        binding.companyGithub.setOnClickListener {
+            val intent = Intent (getActivity(), WebviewActivity::class.java)
+            getActivity()!!.startActivity(intent) }
+
+        val prefs = getActivity()!!.getSharedPreferences("LOGIN", Context.MODE_PRIVATE)
+        binding.companyName.text = prefs.getString("COM_NAME", null)
+        binding.companyEmail.text = prefs.getString("ACC_EMAIL", null)
 
         binding.btnEditCompany.setOnClickListener {
             val intent = Intent (getActivity(), EditProfileCompanyActivity::class.java)
