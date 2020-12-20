@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.CompanyMainActivity"></activity>
+        <activity android:name=".activity.EditProfileEngineerActivity"></activity>
+        <activity android:name=".activity.EditProfileCompanyActivity" />
+        <activity android:name=".activity.CompanyMainActivity" />
         <activity android:name=".helper.WebviewActivity" />
         <activity android:name=".activity.EngineerMainActivity" />
         <activity android:name=".activity.TestActivity" />
@@ -24,7 +26,9 @@
         <activity android:name=".activity.RegisterCompanyActivity" />
         <activity android:name=".activity.RegisterEngineerActivity" />
         <activity android:name=".activity.LoginCompanyActivity" />
-        <activity android:name=".activity.LoginEngineerActivity" />
+        <activity
+            android:name=".activity.LoginEngineerActivity"
+            android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".activity.OnBoardActivity" />
         <activity android:name=".activity.SplashscreenActivity">
             <intent-filter>

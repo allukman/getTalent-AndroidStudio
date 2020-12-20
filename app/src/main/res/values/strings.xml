@@ -48,5 +48,26 @@
     <string name="sort_by_job_type1">Sortir berdasarkan freelance</string>
     <string name="sort_by_job_type2">Sortir berdasarkan fulltime</string>
     <string name="daftar">Daftar</string>
+    <string name="batal">Batal</string>
+    <string name="simpan">Simpan</string>
+    <string name="data_diri">Data diri</string>
+    <string name="tv_nama_perusahaan">Nama Perusahaan</string>
+    <string name="et_masukan_nama_perusahaan">Masukan nama perusahaan</string>
+    <string name="tv_bidang_perusahaan">Bidang Perusahaan</string>
+    <string name="et_masukan_bidang_perusahaan">Masukan bidang perusahaan</string>
+    <string name="tv_kota">Kota</string>
+    <string name="et_masukan_kota">Masukan kota</string>
+    <string name="tv_deskripsi_singkat">Deskripsi singkat</string>
+    <string name="et_tuliskan_deskripsi_singkat">Tuliskan deskripsi singkat</string>
+    <string name="tv_com_email">Email</string>
+    <string name="et_com_masukan_email">Masukan email</string>
+    <string name="tv_com_instagram">Instagram</string>
+    <string name="et_masukan_instagram">Masukan Instagram</string>
+    <string name="tv_nomor_telepon">Nomor telepon</string>
+    <string name="et_masukan_nomor_telepon">Masukan nomor telepon</string>
+    <string name="tv_linkedin">Linkedin</string>
+    <string name="et_masukan_linkedin">Masukan linkedin</string>
+    <string name="pt_shelby_company">PT. Shelby Company</string>
+    <string name="edit">Edit</string>
 
 </resources>

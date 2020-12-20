@@ -13,7 +13,21 @@ class LoginCompanyActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login_company)
 
-        binding.btnLogin.setOnClickListener { startActivity(Intent(this, CompanyMainActivity::class.java)) }
+        binding.btnLogin.setOnClickListener {
+            val email = binding.etEmail.text.toString()
+            val password = binding.etPassword.text.toString()
+
+            if (email.isEmpty()) {
+                binding.etEmail.error = "Email tidak boleh kosong"
+                binding.etEmail.requestFocus()
+            } else if (password.isEmpty()) {
+                binding.etPassword.error = "Password tidak boleh kosong"
+                binding.etPassword.requestFocus()
+            } else {
+                startActivity(Intent(this, CompanyMainActivity::class.java))
+            }
+
+        }
         binding.tvRegister.setOnClickListener { startActivity(Intent(this, RegisterCompanyActivity::class.java)) }
         binding.tvForgotPassword.setOnClickListener { startActivity(Intent(this, ResetPasswordActivity::class.java))}
     }

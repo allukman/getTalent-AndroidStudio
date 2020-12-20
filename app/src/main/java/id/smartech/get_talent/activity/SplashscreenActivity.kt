@@ -14,7 +14,7 @@ class SplashscreenActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splashscreen)
 
         Handler().postDelayed({
-            startActivity(Intent(this, OnBoardActivity::class.java))
+            startActivity(Intent(this, EditProfileCompanyActivity::class.java))
             finish()
         }, 3000)
     }
