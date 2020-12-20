@@ -4,29 +4,38 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activity.EngineerMainActivity">
-
-    <RelativeLayout
+    
+    <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:id="@+id/drawerLayout"
+        android:fitsSystemWindows="true">
 
-        <FrameLayout
-            android:id="@+id/fl_wrapper"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/bottom_navigation"/>
+            >
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="?android:attr/windowBackground"
-            app:itemBackground="@color/colorPrimary"
-            app:itemIconTint="#fff"
-            app:itemTextColor="#fff"
-            app:menu="@menu/bottom_navbar_menu"/>
+            <FrameLayout
+                android:id="@+id/fl_wrapper"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/bottom_navigation"/>
 
-    </RelativeLayout>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="?android:attr/windowBackground"
+                app:itemBackground="@color/colorPrimary"
+                app:itemIconTint="#fff"
+                app:itemTextColor="#fff"
+                app:menu="@menu/bottom_navbar_menu"/>
+
+        </RelativeLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 </layout>

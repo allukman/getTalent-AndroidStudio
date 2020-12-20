@@ -69,5 +69,22 @@
     <string name="et_masukan_linkedin">Masukan linkedin</string>
     <string name="pt_shelby_company">PT. Shelby Company</string>
     <string name="edit">Edit</string>
+    <string name="eng_masukan_nama_lengkap">Masukan nama lengkap</string>
+    <string name="eng_job_title">Job title</string>
+    <string name="eng_masukan_job_title">Masukan Job title</string>
+    <string name="eng_domisili">Domisili</string>
+    <string name="eng_masukan_domisili">Masukan domisili</string>
+    <string name="eng_tempat_kerja">Tempat kerja</string>
+    <string name="eng_masukan_tempat_kerja">Masukan tempat kerja</string>
+    <string name="eng_deskripsi_singkat">Deskripsi singkat</string>
+    <string name="cv_skill">Skill</string>
+    <string name="et_xp_posisi">Web developer</string>
+    <string name="tv_xp_com_name">Nama perusahaan</string>
+    <string name="pt_suka_maju">PT SUKA MAJU</string>
+    <string name="deskripsikan_pekerjaan_anda">Deskripsikan pekerjaan anda</string>
+    <string name="tv_xp_date">Bulan/tahun</string>
+    <string name="january_2018">January 2018</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
 
 </resources>

@@ -12,11 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.EditProfileEngineerActivity"></activity>
+        <activity android:name=".activity.EditProfileEngineerActivity"/>
         <activity android:name=".activity.EditProfileCompanyActivity" />
         <activity android:name=".activity.CompanyMainActivity" />
         <activity android:name=".helper.WebviewActivity" />
-        <activity android:name=".activity.EngineerMainActivity" />
+        <activity android:name=".activity.EngineerMainActivity"/>
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.ProfileCompanyActivity" />
         <activity android:name=".activity.ProfileEngineerActivity" />
