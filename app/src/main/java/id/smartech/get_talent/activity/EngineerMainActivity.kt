@@ -15,6 +15,7 @@ import id.smartech.get_talent.databinding.ActivityMainBinding
 import id.smartech.get_talent.fragment.EngineerProfileFragment
 import id.smartech.get_talent.fragment.HomeFragment
 import id.smartech.get_talent.fragment.SearchFragment
+import id.smartech.get_talent.util.Constant
 import id.smartech.get_talent.util.PrefHelper
 
 class EngineerMainActivity : AppCompatActivity() {
@@ -75,7 +76,7 @@ class EngineerMainActivity : AppCompatActivity() {
         builder.setTitle("Are you sure!")
         builder.setMessage("Do you want to logout?")
         builder.setPositiveButton("Yes",{ dialogInterface: DialogInterface, i: Int ->
-            prefHelper.clear()
+            prefHelper.put( Constant.IS_LOGIN, false )
             moveIntent()
         })
         builder.setNegativeButton("No",{ dialogInterface: DialogInterface, i: Int -> })
