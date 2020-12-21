@@ -18,6 +18,7 @@ class WebviewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_webview)
+        
 
         binding.webView.loadUrl("https://github.com/allukman")
         binding.webView.webViewClient = WebViewClient()

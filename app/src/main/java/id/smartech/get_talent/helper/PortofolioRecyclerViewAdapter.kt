@@ -20,7 +20,8 @@ class PortofolioRecyclerViewAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder =
-        ImageViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_portofolio, parent, false))
+        ImageViewHolder(LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_portofolio, parent, false))
 
     override fun getItemCount(): Int = images.size
 

@@ -11,6 +11,11 @@
         android:title="Search"/>
 
     <item
+        android:id="@+id/ic_project"
+        android:icon="@drawable/ic_edit"
+        android:title="Project"/>
+
+    <item
         android:id="@+id/ic_profile"
         android:icon="@drawable/ic_person"
         android:title="Profile"/>

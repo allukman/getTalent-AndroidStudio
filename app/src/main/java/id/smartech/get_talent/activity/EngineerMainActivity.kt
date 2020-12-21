@@ -14,6 +14,7 @@ import id.smartech.get_talent.R
 import id.smartech.get_talent.databinding.ActivityMainBinding
 import id.smartech.get_talent.fragment.EngineerProfileFragment
 import id.smartech.get_talent.fragment.HomeFragment
+import id.smartech.get_talent.fragment.ProjectFragment
 import id.smartech.get_talent.fragment.SearchFragment
 import id.smartech.get_talent.util.Constant
 import id.smartech.get_talent.util.PrefHelper
@@ -37,6 +38,7 @@ class EngineerMainActivity : AppCompatActivity() {
         val homeFragment = HomeFragment()
         val engineerProfileFragment = EngineerProfileFragment()
         val searchFragment = SearchFragment()
+        val projectFragment = ProjectFragment()
 
         currentFragment(engineerProfileFragment)
 
@@ -45,6 +47,7 @@ class EngineerMainActivity : AppCompatActivity() {
                 R.id.ic_home -> currentFragment(homeFragment)
                 R.id.ic_search -> currentFragment(searchFragment)
                 R.id.ic_profile -> currentFragment(engineerProfileFragment)
+                R.id.ic_project -> currentFragment(projectFragment)
             }
             true
         }

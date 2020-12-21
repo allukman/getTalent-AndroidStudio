@@ -35,8 +35,8 @@ class CompanyProfileFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_company_profile, container, false)
 
         binding.companyGithub.setOnClickListener {
-            val intent = Intent (getActivity(), WebviewActivity::class.java)
-            getActivity()!!.startActivity(intent) }
+            val intent = Intent (activity, WebviewActivity::class.java)
+            activity!!.startActivity(intent) }
 
         val prefs = getActivity()!!.getSharedPreferences("LOGIN", Context.MODE_PRIVATE)
         binding.companyName.text = prefs.getString("COM_NAME", null)

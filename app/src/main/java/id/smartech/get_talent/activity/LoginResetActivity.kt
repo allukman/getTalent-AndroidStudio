@@ -37,12 +37,15 @@ class LoginResetActivity : AppCompatActivity() {
                 Toast.makeText(this, "Username / password salah!", Toast.LENGTH_SHORT).show()
             } else {
                 if (checkLevel == 1 ) {
-                    startActivity(Intent(this, ProfileEngineerActivity::class.java))
+                    startActivity(Intent(this, EngineerMainActivity::class.java))
                     saveSession()
                 } else {
-                    startActivity(Intent(this, ProfileCompanyActivity::class.java))
+                    startActivity(Intent(this, CompanyMainActivity::class.java))
                     saveSession()
                 }
+
+
+
             }
         }
 
