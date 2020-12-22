@@ -21,7 +21,7 @@ import id.smartech.get_talent.util.PrefHelper
 
 class EngineerMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    lateinit var prefHelper: PrefHelper
+    private lateinit var prefHelper: PrefHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +40,7 @@ class EngineerMainActivity : AppCompatActivity() {
         val searchFragment = SearchFragment()
         val projectFragment = ProjectFragment()
 
-        currentFragment(engineerProfileFragment)
+        currentFragment(homeFragment)
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {

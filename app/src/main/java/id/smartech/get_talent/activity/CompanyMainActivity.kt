@@ -11,10 +11,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import id.smartech.get_talent.R
 import id.smartech.get_talent.databinding.ActivityCompanyMainBinding
-import id.smartech.get_talent.fragment.CompanyProfileFragment
-import id.smartech.get_talent.fragment.EngineerProfileFragment
-import id.smartech.get_talent.fragment.HomeFragment
-import id.smartech.get_talent.fragment.SearchFragment
+import id.smartech.get_talent.fragment.*
 import id.smartech.get_talent.util.Constant
 import id.smartech.get_talent.util.PrefHelper
 
@@ -38,6 +35,7 @@ class CompanyMainActivity : AppCompatActivity() {
         val homeFragment = HomeFragment()
         val companyProfileFragment = CompanyProfileFragment()
         val searchFragment = SearchFragment()
+        val projectFragment = ProjectFragment()
 
         currentFragment(companyProfileFragment)
 
@@ -46,6 +44,7 @@ class CompanyMainActivity : AppCompatActivity() {
                 R.id.ic_home -> currentFragment(homeFragment)
                 R.id.ic_search -> currentFragment(searchFragment)
                 R.id.ic_profile -> currentFragment(companyProfileFragment)
+                R.id.ic_project -> currentFragment(projectFragment)
             }
             true
         }
