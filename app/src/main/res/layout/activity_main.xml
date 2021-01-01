@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.EngineerMainActivity">
+    tools:context=".activity.main.EngineerMainActivity">
     
     <androidx.drawerlayout.widget.DrawerLayout
         android:layout_width="match_parent"
@@ -20,11 +20,23 @@
                 android:id="@+id/top_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:actionBarSize"
-                android:background="@color/colorPrimaryDark"
+                android:background="@color/colorPrimary"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:titleTextColor="@color/colorWhite"
-                />
+                app:titleTextColor="@color/colorWhite">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="Profile"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorWhite"
+                    />
+            </androidx.appcompat.widget.Toolbar>
 
             <FrameLayout
                 android:id="@+id/fl_wrapper"

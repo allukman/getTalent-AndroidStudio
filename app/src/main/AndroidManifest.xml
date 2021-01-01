@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="id.smartech.get_talent">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,23 +12,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".activity.EditProfileEngineerActivity"/>
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="m">
+        <activity android:name=".ErrorActivity"></activity>
+        <activity android:name=".activity.project.DetailProjectActivity" />
+        <activity android:name=".activity.EditProfileEngineerActivity" />
         <activity android:name=".activity.EditProfileCompanyActivity" />
-        <activity android:name=".activity.CompanyMainActivity" />
+        <activity android:name=".activity.main.CompanyMainActivity" />
         <activity android:name=".helper.WebviewActivity" />
-        <activity android:name=".activity.EngineerMainActivity"/>
+        <activity android:name=".activity.main.EngineerMainActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.ProfileCompanyActivity" />
         <activity android:name=".activity.ProfileEngineerActivity" />
         <activity android:name=".activity.LoginResetActivity" />
         <activity android:name=".activity.ConfirmPasswordActivity" />
         <activity android:name=".activity.ResetPasswordActivity" />
-        <activity android:name=".activity.RegisterCompanyActivity" />
-        <activity android:name=".activity.RegisterEngineerActivity" />
-        <activity android:name=".activity.LoginCompanyActivity" />
+        <activity android:name=".activity.register.RegisterCompanyActivity" />
+        <activity android:name=".activity.register.RegisterEngineerActivity" />
+        <activity android:name=".activity.login.LoginCompanyActivity" />
         <activity
-            android:name=".activity.LoginEngineerActivity"
+            android:name=".activity.login.LoginEngineerActivity"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity android:name=".activity.OnBoardActivity" />
         <activity android:name=".activity.SplashscreenActivity">

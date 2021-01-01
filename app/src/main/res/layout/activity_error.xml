@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ErrorActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Oops!"
+            android:textColor="@color/colorBlack"
+            android:textSize="48dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Something went wrong, Please try again"
+            android:textColor="@color/colorBlack"
+            android:textSize="24dp"
+            android:layout_marginTop="24dp"
+            android:gravity="center"/>
+
+
+        <ImageView
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"
+            android:src="@drawable/something_wrong"/>
+
+        <Button
+            android:id="@+id/btn_try_gain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Try again"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/colorWhite"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="24dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+
+</layout>

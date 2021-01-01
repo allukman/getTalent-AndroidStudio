@@ -1,4 +1,4 @@
-package id.smartech.get_talent.activity
+package id.smartech.get_talent.activity.main
 
 import android.content.DialogInterface
 import android.content.Intent
@@ -6,53 +6,61 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import id.smartech.get_talent.R
-import id.smartech.get_talent.databinding.ActivityMainBinding
-import id.smartech.get_talent.fragment.EngineerProfileFragment
-import id.smartech.get_talent.fragment.HomeFragment
-import id.smartech.get_talent.fragment.ProjectFragment
-import id.smartech.get_talent.fragment.SearchFragment
+import id.smartech.get_talent.activity.OnBoardActivity
+import id.smartech.get_talent.activity.home.HomeFragment
+import id.smartech.get_talent.databinding.ActivityCompanyMainBinding
+import id.smartech.get_talent.fragment.*
+import id.smartech.get_talent.activity.project.ListProjectCompanyFragment
 import id.smartech.get_talent.util.Constant
 import id.smartech.get_talent.util.PrefHelper
 
-class EngineerMainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var prefHelper: PrefHelper
+class CompanyMainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCompanyMainBinding
+    lateinit var prefHelper: PrefHelper
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_company_main)
         prefHelper = PrefHelper(this)
 
-        setSupportActionBar(binding.topToolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        binding.topToolbar.setNavigationOnClickListener {
-            onBackPressed()
-        }
+        setSupportActionBar(binding.topToolbar)
 
         val homeFragment = HomeFragment()
-        val engineerProfileFragment = EngineerProfileFragment()
+        val companyProfileFragment = CompanyProfileFragment()
         val searchFragment = SearchFragment()
-        val projectFragment = ProjectFragment()
+        val projectFragment = ListProjectCompanyFragment()
 
-        currentFragment(homeFragment)
+        currentFragment(companyProfileFragment)
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
-                R.id.ic_home -> currentFragment(homeFragment)
-                R.id.ic_search -> currentFragment(searchFragment)
-                R.id.ic_profile -> currentFragment(engineerProfileFragment)
-                R.id.ic_project -> currentFragment(projectFragment)
+                R.id.ic_home -> {
+                    currentFragment(homeFragment)
+                    binding.toolbarTitle.setText("Home   ")
+                }
+                R.id.ic_search -> {
+                    currentFragment(searchFragment)
+                    binding.toolbarTitle.setText("Search  ")
+                }
+                R.id.ic_profile -> {
+                    currentFragment(companyProfileFragment)
+                    binding.toolbarTitle.setText("Profile  ")
+
+                }
+                R.id.ic_project -> {
+                    currentFragment(projectFragment)
+                    binding.toolbarTitle.setText("Project  ")
+                }
             }
             true
         }
-
     }
+
 
     private fun currentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
@@ -90,5 +98,4 @@ class EngineerMainActivity : AppCompatActivity() {
         startActivity(Intent(this, OnBoardActivity::class.java))
         finish()
     }
-
 }

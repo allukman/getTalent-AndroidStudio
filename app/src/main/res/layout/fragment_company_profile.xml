@@ -14,14 +14,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:background="@color/colorAccent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/company_view"
                 android:layout_width="match_parent"
@@ -177,14 +169,14 @@
                         app:drawableStartCompat="@drawable/ic_github"/>
 
                     <TextView
-                        android:id="@+id/company_gitlab"
+                        android:id="@+id/company_linkedin"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/git_teks"
                         android:textSize="20sp"
                         android:drawablePadding="16dp"
                         android:layout_margin="10dp"
-                        app:drawableStartCompat="@drawable/ic_gitlab"/>
+                        app:drawableStartCompat="@drawable/ic_linkedin"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

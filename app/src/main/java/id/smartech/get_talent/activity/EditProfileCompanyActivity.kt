@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import id.smartech.get_talent.R
+import id.smartech.get_talent.activity.main.CompanyMainActivity
 
 class EditProfileCompanyActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -3,7 +3,7 @@ package id.smartech.get_talent.util
 import android.content.Context
 import android.content.SharedPreferences
 
-class PrefHelper(context: Context) {
+class PrefHelper(private val context: Context) {
     private val PREF_NAME = "LOGIN"
     private val sharedPref : SharedPreferences
     val editor: SharedPreferences.Editor
@@ -29,7 +29,7 @@ class PrefHelper(context: Context) {
         return sharedPref.getBoolean(key, false)
     }
 
-    fun put(key: String, value: Boolean) {
+    fun put(key: String?, value: Boolean) {
         editor.putBoolean(key, value)
             .apply()
     }
