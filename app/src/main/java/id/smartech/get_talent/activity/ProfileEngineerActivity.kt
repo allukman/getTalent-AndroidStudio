@@ -3,8 +3,6 @@ package id.smartech.get_talent.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.viewpager.widget.ViewPager
-import com.google.android.material.tabs.TabLayout
 import id.smartech.get_talent.R
 import id.smartech.get_talent.databinding.ActivityProfileEngineerBinding
 import id.smartech.get_talent.helper.TabPagerAdaptor

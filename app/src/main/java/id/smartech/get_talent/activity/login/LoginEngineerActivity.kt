@@ -95,7 +95,6 @@ class LoginEngineerActivity : AppCompatActivity() {
             if (result is LoginResponse) {
                 if(result.success) {
                     saveSession(result.data.accountId, result.data.token, result.data.accountLevel )
-                    Toast.makeText(this@LoginEngineerActivity, "Login success!", Toast.LENGTH_LONG).show()
                     moveIntent()
                 }
             } else {

@@ -8,11 +8,9 @@ import androidx.databinding.DataBindingUtil
 import id.smartech.get_talent.R
 import id.smartech.get_talent.activity.OnBoardActivity
 import id.smartech.get_talent.activity.login.LoginCompanyActivity
-import id.smartech.get_talent.activity.login.LoginEngineerActivity
 import id.smartech.get_talent.databinding.ActivityRegisterCompanyBinding
 import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.AccountService
-import id.smartech.get_talent.util.Constant
 import id.smartech.get_talent.util.PrefHelper
 import kotlinx.coroutines.*
 

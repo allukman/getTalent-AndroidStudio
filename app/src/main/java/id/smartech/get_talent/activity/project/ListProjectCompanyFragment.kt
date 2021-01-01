@@ -15,12 +15,15 @@ import id.smartech.get_talent.helper.ListProjectAdapter
 import id.smartech.get_talent.service.ProjectApiService
 import id.smartech.get_talent.data.ProjectCompanyModel
 import id.smartech.get_talent.remote.ApiClient
+import id.smartech.get_talent.util.Constant
+import id.smartech.get_talent.util.PrefHelper
 import kotlinx.coroutines.*
 
 class ListProjectCompanyFragment : Fragment() {
 
     private lateinit var binding: FragmentListProjectCompanyBinding
     private lateinit var coroutineScope: CoroutineScope
+    private lateinit var prefHelper: PrefHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +31,7 @@ class ListProjectCompanyFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_list_project_company, container, false)
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
+        prefHelper = PrefHelper(context = context)
 
         binding.rvListProject.adapter =
             ListProjectAdapter()
@@ -39,7 +43,6 @@ class ListProjectCompanyFragment : Fragment() {
 
     fun getProjectByComId() {
         val service = ApiClient.getApiClient(requireContext())?.create(ProjectApiService::class.java)
-
         coroutineScope.launch {
             Log.d("project", "Start: ${Thread.currentThread().name}")
 
@@ -47,7 +50,7 @@ class ListProjectCompanyFragment : Fragment() {
                 Log.d("project", "CallAPI : ${Thread.currentThread().name}")
 
                 try {
-                    service?.getProjectByComId()
+                    service?.getProjectByComId(prefHelper.getString(Constant.COM_ID))
                 } catch (e:Throwable) {
                     e.printStackTrace()
                 }

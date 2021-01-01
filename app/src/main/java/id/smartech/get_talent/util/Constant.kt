@@ -12,6 +12,9 @@ class Constant {
         val ACC_PASSWORD = "ACC_PASSWORD"
         val ACC_LEVEL = "ACC_LEVEL"
 
+        val EN_ID = "EN_ID"
+        val COM_ID = "COM_ID"
+
 
 
         val COM_NAME = "COM_NAME"

@@ -1,12 +1,11 @@
 package id.smartech.get_talent.service
 
 import id.smartech.get_talent.activity.login.LoginResponse
+import id.smartech.get_talent.activity.main.GetCompanyIdResponse
 import id.smartech.get_talent.activity.main.GetEngineerIdResponse
 import id.smartech.get_talent.activity.register.RegisterResponse
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import id.smartech.get_talent.util.PrefHelper
+import retrofit2.http.*
 
 interface AccountService {
 
@@ -39,8 +38,12 @@ interface AccountService {
                                          ) : RegisterResponse
 //    Get EngineerId
 
-    @GET("/engineer/getId/5")
-    suspend fun getEngineerIdByAccountId(): GetEngineerIdResponse
+    @GET("/engineer/getId/{id}")
+    suspend fun getEngineerIdByAccountId(@Path("id")enId: String? ): GetEngineerIdResponse
 
+    //    Get CompanyId
+
+    @GET("/company/getId/{id}")
+    suspend fun getCompanyIdByAccountId(@Path("id")comId: String? ): GetCompanyIdResponse
 
 }
