@@ -3,6 +3,7 @@ package id.smartech.get_talent.activity.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import id.smartech.get_talent.R
@@ -66,11 +67,12 @@ class LoginEngineerActivity : AppCompatActivity() {
 //        }
 //    }
 
-    private fun saveSession(accountId: String, token: String, level: String){
+    private fun saveSession(accountId: String, token: String, level: String, name: String){
         prefHelper.put( Constant.IS_LOGIN, true )
         prefHelper.put(Constant.ACC_ID, accountId)
         prefHelper.put(Constant.TOKEN, token)
         prefHelper.put(Constant.ACC_LEVEL, level)
+        prefHelper.put(Constant.ACC_NAMA, name)
     }
 
     override fun onBackPressed() {
@@ -94,7 +96,9 @@ class LoginEngineerActivity : AppCompatActivity() {
 
             if (result is LoginResponse) {
                 if(result.success) {
-                    saveSession(result.data.accountId, result.data.token, result.data.accountLevel )
+                    Log.d("test", result.toString())
+                    saveSession(result.data.accountId, result.data.token, result.data.accountLevel, result.data.accountName )
+                    Toast.makeText(this@LoginEngineerActivity, prefHelper.getString(Constant.ACC_NAMA), Toast.LENGTH_SHORT).show()
                     moveIntent()
                 }
             } else {

@@ -17,6 +17,8 @@ import id.smartech.get_talent.databinding.FragmentHomeBinding
 import id.smartech.get_talent.helper.HomeAdapter
 import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.EngineerApiService
+import id.smartech.get_talent.util.Constant
+import id.smartech.get_talent.util.PrefHelper
 import kotlinx.coroutines.*
 
 
@@ -24,6 +26,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var coroutineScope: CoroutineScope
+    private lateinit var prefHelper: PrefHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +34,10 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
+        prefHelper = PrefHelper(context = context)
+
+        val accountName = prefHelper.getString(Constant.ACC_NAMA)
+        binding.tvGreeting.text = "Hai, $accountName"
 
         binding.rvJobTitle1.adapter = HomeAdapter()
         binding.rvJobTitle1.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)

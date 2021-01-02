@@ -63,12 +63,17 @@ class CompanyMainActivity : AppCompatActivity() {
                 }
                 R.id.ic_project -> {
                     currentFragment(projectFragment)
-                    binding.toolbarTitle.setText(prefHelper.getString(Constant.COM_ID))
+                    binding.toolbarTitle.setText("Project  ")
                 }
             }
             true
         }
 
+
+    }
+
+    override fun onStart() {
+        super.onStart()
         getCompanyId()
     }
 
@@ -110,9 +115,8 @@ class CompanyMainActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun saveSession(companyId: String?, accountEmail: String?){
-        prefHelper.put(Constant.COM_ID, companyId )
-        prefHelper.put(Constant.ACC_EMAIL, accountEmail)
+    private fun saveSession(companyId: Int){
+        prefHelper.put(Constant.COM_ID, companyId)
     }
 
     private fun getCompanyId() {
@@ -130,11 +134,8 @@ class CompanyMainActivity : AppCompatActivity() {
             Log.d("android response", response.toString())
 
             if (response is GetCompanyIdResponse) {
-                if (response.success) {
-                    saveSession(response.data.comId, response.data.accountEmail)
-                } else {
-
-                }
+                Log.d("test", response.toString())
+                saveSession(response.data.comId)
             }
         }
     }

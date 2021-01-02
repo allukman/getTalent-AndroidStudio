@@ -13,6 +13,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import id.smartech.get_talent.R
 import id.smartech.get_talent.activity.OnBoardActivity
+import id.smartech.get_talent.activity.hire.ListHireEngineerFragment
 import id.smartech.get_talent.activity.home.HomeFragment
 import id.smartech.get_talent.databinding.ActivityMainBinding
 import id.smartech.get_talent.fragment.*
@@ -40,7 +41,7 @@ class EngineerMainActivity : AppCompatActivity() {
         val homeFragment = HomeFragment()
         val engineerProfileFragment = EngineerProfileFragment()
         val searchFragment = SearchFragment()
-        val projectFragment = ProjectFragment()
+        val hireFragment = ListHireEngineerFragment()
 
         currentFragment(homeFragment)
 
@@ -60,8 +61,8 @@ class EngineerMainActivity : AppCompatActivity() {
 
                 }
                 R.id.ic_project -> {
-                    currentFragment(projectFragment)
-                    binding.toolbarTitle.setText("Project  ")
+                    currentFragment(hireFragment)
+                    binding.toolbarTitle.setText("Hire  ")
                 }
             }
             true
@@ -128,7 +129,6 @@ class EngineerMainActivity : AppCompatActivity() {
             if (response is GetEngineerIdResponse) {
                 if (response.success) {
                     saveSession(response.data.engineerId, response.data.accountEmail)
-                    Toast.makeText(this@EngineerMainActivity, prefHelper.getString(Constant.EN_ID), Toast.LENGTH_SHORT).show()
                 } else {
 
                 }

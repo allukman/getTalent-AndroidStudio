@@ -33,15 +33,14 @@ class ListProjectCompanyFragment : Fragment() {
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
         prefHelper = PrefHelper(context = context)
 
-        binding.rvListProject.adapter =
-            ListProjectAdapter()
+        binding.rvListProject.adapter = ListProjectAdapter()
         binding.rvListProject.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
 
         getProjectByComId()
         return binding.root
     }
 
-    fun getProjectByComId() {
+    private fun getProjectByComId() {
         val service = ApiClient.getApiClient(requireContext())?.create(ProjectApiService::class.java)
         coroutineScope.launch {
             Log.d("project", "Start: ${Thread.currentThread().name}")
@@ -50,7 +49,7 @@ class ListProjectCompanyFragment : Fragment() {
                 Log.d("project", "CallAPI : ${Thread.currentThread().name}")
 
                 try {
-                    service?.getProjectByComId(prefHelper.getString(Constant.COM_ID))
+                    service?.getProjectByComId(prefHelper.getInteger(Constant.COM_ID))
                 } catch (e:Throwable) {
                     e.printStackTrace()
                 }
