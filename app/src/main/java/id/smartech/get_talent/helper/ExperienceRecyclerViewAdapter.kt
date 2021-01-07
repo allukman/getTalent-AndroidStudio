@@ -18,7 +18,7 @@ class ExperienceRecyclerViewAdapter(
         val img = itemView.findViewById<ImageView>(R.id.xp_logo)
         val title = itemView.findViewById<TextView>(R.id.xp_job_title)
         val companyName = itemView.findViewById<TextView>(R.id.xp_company_name)
-        val date = itemView.findViewById<TextView>(R.id.xp_start_end)
+        val date = itemView.findViewById<TextView>(R.id.xp_start_date)
         val deskripsi = itemView.findViewById<TextView>(R.id.xp_deskripsi)
 
         fun bindView(data: Experience) {

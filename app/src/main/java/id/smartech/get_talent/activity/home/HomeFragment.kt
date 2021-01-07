@@ -7,12 +7,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.smartech.get_talent.ErrorActivity
 import id.smartech.get_talent.R
-import id.smartech.get_talent.data.HomeModel
+import id.smartech.get_talent.activity.detailProfile.ProfileEngineerActivity
+import id.smartech.get_talent.data.EngineerModel
 import id.smartech.get_talent.databinding.FragmentHomeBinding
 import id.smartech.get_talent.helper.HomeAdapter
 import id.smartech.get_talent.remote.ApiClient
@@ -22,11 +24,12 @@ import id.smartech.get_talent.util.PrefHelper
 import kotlinx.coroutines.*
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), OnRecyclerViewClickListener {
 
     private lateinit var binding: FragmentHomeBinding
     private lateinit var coroutineScope: CoroutineScope
     private lateinit var prefHelper: PrefHelper
+    var listEngineer = ArrayList<EngineerModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +42,8 @@ class HomeFragment : Fragment() {
         val accountName = prefHelper.getString(Constant.ACC_NAMA)
         binding.tvGreeting.text = "Hai, $accountName"
 
-        binding.rvJobTitle1.adapter = HomeAdapter()
+        binding.rvJobTitle1.adapter = HomeAdapter(listEngineer, this)
         binding.rvJobTitle1.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-
-        binding.rvJobTitle2.adapter = HomeAdapter()
-        binding.rvJobTitle2.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-
-        getEngineerAndroidDeveloper()
         getEngineerWebDeveloper()
         return binding.root
     }
@@ -54,11 +52,7 @@ class HomeFragment : Fragment() {
         val service = ApiClient.getApiClient(requireContext())?.create(EngineerApiService::class.java)
 
         coroutineScope.launch {
-            Log.d("webdev", "Start: ${Thread.currentThread().name}")
-
             val response = withContext(Dispatchers.IO) {
-                Log.d("webdev", "CallAPI : ${Thread.currentThread().name}")
-
                 try {
                     service?.getEngineerWebDeveloper()
                 } catch (e:Throwable) {
@@ -66,12 +60,9 @@ class HomeFragment : Fragment() {
 
                 }
             }
-
-            Log.d("webdev response", response.toString())
-
             if(response is EngineerResponse) {
                 val list = response.data?.map {
-                    HomeModel(
+                    EngineerModel(
                         it.engineerId,
                         it.accountId,
                         it.accountName,
@@ -83,51 +74,25 @@ class HomeFragment : Fragment() {
                 }
                 (binding.rvJobTitle1.adapter as HomeAdapter).addList(list)
             } else {
-                val intent = Intent (activity, ErrorActivity::class.java)
-                activity!!.startActivity(intent)
+                moveIntentError()
             }
         }
     }
 
-    private fun getEngineerAndroidDeveloper() {
-        val service = ApiClient.getApiClient(requireContext())?.create(EngineerApiService::class.java)
-
-        coroutineScope.launch {
-            Log.d("android", "Start: ${Thread.currentThread().name}")
-
-            val response = withContext(Dispatchers.IO) {
-                Log.d("android", "CallAPI : ${Thread.currentThread().name}")
-
-                try {
-                    service?.getEngineerAndroidDeveloper()
-                } catch (e:Throwable) {
-                    e.printStackTrace()
-
-                }
-            }
-
-            Log.d("android response", response.toString())
-
-            if(response is EngineerResponse) {
-                val list = response.data?.map {
-                    HomeModel(
-                        it.engineerId,
-                        it.accountId,
-                        it.accountName,
-                        it.engineerJobTitle,
-                        it.engineerJobType,
-                        it.engineerDomicile,
-                        it.engineerPhoto
-                    )
-                }
-                (binding.rvJobTitle2.adapter as HomeAdapter).addList(list)
-            }
-        }
-    }
     override fun onDestroy() {
         coroutineScope.cancel()
         super.onDestroy()
     }
 
+    override fun onRecyclerViewItemClicked(position: Int) {
+        prefHelper.put(Constant.EN_ID_CLICK, listEngineer[position].engineerId)
+        val intent = Intent (activity, ProfileEngineerActivity::class.java)
+        activity!!.startActivity(intent)
+    }
+
+    private fun moveIntentError(){
+        val intent = Intent (activity, ErrorActivity::class.java)
+        activity!!.startActivity(intent)
+    }
 
 }

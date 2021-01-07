@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.hire.AddHireActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/top_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:titleTextColor="@color/colorWhite">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="Hiring process"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/top_toolbar">
+
+            <TextView
+                android:id="@+id/tv_hire"
+                android:text="Hire Engineer"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-light"
+                android:textSize="18sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="25dp"
+                />
+
+            <View
+                android:id="@+id/v_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="5dp"
+                android:background="@color/colorPrimaryGrey"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_hire"
+                android:layout_marginTop="18dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_project_name"
+                android:text="Project:"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/v_experience"
+                app:layout_constraintLeft_toLeftOf="@id/spinner_list_project"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="5dp" />
+
+            <Spinner
+                android:id="@+id/spinner_list_project"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rectangle_border"
+                app:layout_constraintTop_toBottomOf="@id/tv_project_name"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp" />
+
+            <TextView
+                android:id="@+id/tv_hire_price"
+                android:text="Price"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/spinner_list_project"
+                app:layout_constraintLeft_toLeftOf="@id/spinner_list_project"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="5dp" />
+
+            <EditText
+                android:id="@+id/et_hire_price"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
+                android:background="@drawable/rectangle_border"
+                android:hint="Project Price"
+                android:inputType="number"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_hire_price" />
+
+            <TextView
+                android:id="@+id/tv_hire_message"
+                android:text="Message"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/et_hire_price"
+                app:layout_constraintLeft_toLeftOf="@id/et_hire_price"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="5dp" />
+
+            <EditText
+                android:id="@+id/et_hire_message"
+                android:hint="ex: Please response"
+                android:inputType="textLongMessage|textMultiLine"
+                android:textSize="15sp"
+                android:gravity="top"
+                android:paddingStart="15dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/rectangle_border"
+                app:layout_constraintTop_toBottomOf="@id/tv_hire_message"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="15dp"
+                />
+
+            <View
+                android:id="@+id/v_desc"
+                android:layout_width="0dp"
+                android:layout_height="5dp"
+                android:background="@color/colorPrimaryGrey"
+                app:layout_constraintLeft_toLeftOf="@id/et_hire_message"
+                app:layout_constraintRight_toRightOf="@id/et_hire_message"
+                app:layout_constraintTop_toBottomOf="@id/et_hire_message"
+                android:layout_marginTop="25dp"
+                />
+
+            <Button
+                android:id="@+id/btn_add_hire"
+                android:background="@drawable/rounded_button"
+                android:text="Process Hire"
+                android:textColor="@android:color/white"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/v_desc"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="15dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

@@ -7,5 +7,5 @@ data class GetEngineerIdResponse (val success : Boolean, val message : String, v
                     @SerializedName("acc_id") val accountId: String,
                     @SerializedName("acc_nama") val accountName: String,
                     @SerializedName("acc_email") val accountEmail: String
-                          )
+    )
 }

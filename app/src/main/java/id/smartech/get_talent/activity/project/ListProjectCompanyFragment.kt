@@ -1,15 +1,19 @@
 package id.smartech.get_talent.activity.project
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.smartech.get_talent.R
+import id.smartech.get_talent.activity.detailProfile.ProfileEngineerActivity
+import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
 import id.smartech.get_talent.databinding.FragmentListProjectCompanyBinding
 import id.smartech.get_talent.helper.ListProjectAdapter
 import id.smartech.get_talent.service.ProjectApiService
@@ -19,11 +23,12 @@ import id.smartech.get_talent.util.Constant
 import id.smartech.get_talent.util.PrefHelper
 import kotlinx.coroutines.*
 
-class ListProjectCompanyFragment : Fragment() {
+class ListProjectCompanyFragment : Fragment(), OnRecyclerViewClickListener {
 
     private lateinit var binding: FragmentListProjectCompanyBinding
     private lateinit var coroutineScope: CoroutineScope
     private lateinit var prefHelper: PrefHelper
+    var listProject = ArrayList<ProjectCompanyModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +38,12 @@ class ListProjectCompanyFragment : Fragment() {
         coroutineScope = CoroutineScope(Job() + Dispatchers.Main)
         prefHelper = PrefHelper(context = context)
 
-        binding.rvListProject.adapter = ListProjectAdapter()
+        binding.btnAddProjectCompany.setOnClickListener {
+            val intent = Intent (activity, CreateProjectActivity::class.java)
+            activity!!.startActivity(intent)
+        }
+
+        binding.rvListProject.adapter = ListProjectAdapter(listProject, this)
         binding.rvListProject.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
 
         getProjectByComId()
@@ -43,20 +53,13 @@ class ListProjectCompanyFragment : Fragment() {
     private fun getProjectByComId() {
         val service = ApiClient.getApiClient(requireContext())?.create(ProjectApiService::class.java)
         coroutineScope.launch {
-            Log.d("project", "Start: ${Thread.currentThread().name}")
-
             val response = withContext(Dispatchers.IO) {
-                Log.d("project", "CallAPI : ${Thread.currentThread().name}")
-
                 try {
                     service?.getProjectByComId(prefHelper.getInteger(Constant.COM_ID))
                 } catch (e:Throwable) {
                     e.printStackTrace()
                 }
             }
-
-            Log.d("project response", response.toString())
-
             if(response is ProjectResponse) {
                 val list = response.data.map {
                     ProjectCompanyModel(
@@ -79,5 +82,15 @@ class ListProjectCompanyFragment : Fragment() {
         coroutineScope.cancel()
         super.onDestroy()
     }
+
+    override fun onRecyclerViewItemClicked(position: Int) {
+        moveIntent()
+    }
+
+    private fun moveIntent(){
+        val intent = Intent (activity, DetailProjectActivity::class.java)
+        activity!!.startActivity(intent)
+    }
+
 
 }

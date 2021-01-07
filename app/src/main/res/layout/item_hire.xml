@@ -47,6 +47,9 @@
                     android:layout_height="wrap_content"
                     android:text="Budget : Rp.5.000.000"
                     android:textSize="18dp"
+                    android:layout_marginTop="4dp"
+                    android:drawableStart="@drawable/ic_budget"
+                    android:drawablePadding="8dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/hire_pj_message"/>
 
@@ -56,6 +59,8 @@
                     android:layout_height="wrap_content"
                     android:text="Deadline : 2021-03-03"
                     android:textSize="18dp"
+                    android:drawableStart="@drawable/ic_time"
+                    android:drawablePadding="4dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/hire_price"/>
 
@@ -64,10 +69,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="wait"
-                    android:paddingHorizontal="16dp"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorBlack"
+                    android:paddingHorizontal="24dp"
                     android:paddingVertical="6dp"
                     android:layout_marginTop="8dp"
-                    android:background="#FFFF00"
+                    android:background="@drawable/rectangle_border"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/hire_pj_deadline"/>

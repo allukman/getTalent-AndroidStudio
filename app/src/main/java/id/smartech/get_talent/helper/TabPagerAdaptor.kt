@@ -3,15 +3,16 @@ package id.smartech.get_talent.helper
 import android.os.Parcelable
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentPagerAdapter
 import androidx.fragment.app.FragmentStatePagerAdapter
-import id.smartech.get_talent.fragment.TalentExperienceFragment
+import id.smartech.get_talent.activity.experience.TalentExperienceFragment
 import id.smartech.get_talent.fragment.TalentPortofolioFragment
 
 
 class TabPagerAdaptor(fragment: FragmentManager) : FragmentStatePagerAdapter(fragment, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    val fragment = arrayOf(TalentPortofolioFragment(), TalentExperienceFragment())
+    val fragment = arrayOf(TalentPortofolioFragment(),
+        TalentExperienceFragment()
+    )
 
     override fun getCount(): Int = fragment.size
 

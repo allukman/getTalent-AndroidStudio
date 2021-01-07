@@ -113,27 +113,30 @@ class EngineerMainActivity : AppCompatActivity() {
     }
 
     private fun getEngineerId() {
+        val accountId = prefHelper.getString(Constant.ACC_ID)
         coroutineScope.launch {
-            Log.d("android", "Start: ${Thread.currentThread().name}")
             val response = withContext(Dispatchers.IO) {
-
-                Log.d("android", "CallAPI : ${Thread.currentThread().name}")
                 try {
-                    service?.getEngineerIdByAccountId(prefHelper.getString(Constant.ACC_ID))
+                    service?.getEngineerIdByAccountId(accountId)
                 } catch (e:Throwable) {
                     e.printStackTrace()
                 }
             }
-            Log.d("android response", response.toString())
 
             if (response is GetEngineerIdResponse) {
                 if (response.success) {
                     saveSession(response.data.engineerId, response.data.accountEmail)
+//
                 } else {
-
+                    Log.d("mainEngineer", "Failed to get engineer id")
                 }
             }
         }
+    }
+
+    override fun onDestroy() {
+        coroutineScope.cancel()
+        super.onDestroy()
     }
 
 }

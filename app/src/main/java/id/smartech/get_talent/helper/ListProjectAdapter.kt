@@ -6,11 +6,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.smartech.get_talent.R
+import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
 import id.smartech.get_talent.databinding.ItemProjectCompanyBinding
 import id.smartech.get_talent.data.ProjectCompanyModel
 
-class ListProjectAdapter : RecyclerView.Adapter<ListProjectAdapter.ProjectHolder>() {
-    private var items = mutableListOf<ProjectCompanyModel>()
+class ListProjectAdapter(private val items: ArrayList<ProjectCompanyModel>, private val onRecyclerViewClickListener: OnRecyclerViewClickListener) : RecyclerView.Adapter<ListProjectAdapter.ProjectHolder>() {
+//    private var items = mutableListOf<ProjectCompanyModel>()
 
     fun addList(list : List<ProjectCompanyModel>) {
         items.clear()
@@ -45,5 +46,9 @@ class ListProjectAdapter : RecyclerView.Adapter<ListProjectAdapter.ProjectHolder
             .placeholder(R.drawable.project)
             .error(R.drawable.project)
             .into(holder.binding.pjPhoto)
+
+        holder.itemView.setOnClickListener {
+            onRecyclerViewClickListener.onRecyclerViewItemClicked(position)
+        }
     }
 }

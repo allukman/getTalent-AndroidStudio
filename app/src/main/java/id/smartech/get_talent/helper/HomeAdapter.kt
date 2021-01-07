@@ -6,13 +6,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.smartech.get_talent.R
-import id.smartech.get_talent.data.HomeModel
+import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
+import id.smartech.get_talent.data.EngineerModel
 import id.smartech.get_talent.databinding.ItemHomeBinding
 
-class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
-    private var items = mutableListOf<HomeModel>()
-
-    fun addList(list: List<HomeModel>) {
+class HomeAdapter(private val items: ArrayList<EngineerModel>, private val  onRecyclerViewClickListener: OnRecyclerViewClickListener): RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
+    fun addList(list: List<EngineerModel>) {
         items.clear()
         items.addAll(list)
         notifyDataSetChanged()
@@ -44,6 +43,10 @@ class HomeAdapter: RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
             .placeholder(R.drawable.profile)
             .error(R.drawable.profile)
             .into(holder.binding.engPhotoTitle1)
+
+        holder.itemView.setOnClickListener {
+            onRecyclerViewClickListener.onRecyclerViewItemClicked(position)
+        }
     }
 
 

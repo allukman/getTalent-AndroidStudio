@@ -15,7 +15,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".ErrorActivity"></activity>
+        <activity android:name=".activity.project.CreateProjectActivity"></activity>
+        <activity android:name=".activity.hire.ConfirmHireActivity" />
+        <activity android:name=".activity.hire.AddHireActivity" />
+        <activity android:name=".ErrorActivity" />
         <activity android:name=".activity.project.DetailProjectActivity" />
         <activity android:name=".activity.EditProfileEngineerActivity" />
         <activity android:name=".activity.EditProfileCompanyActivity" />
@@ -23,8 +26,8 @@
         <activity android:name=".helper.WebviewActivity" />
         <activity android:name=".activity.main.EngineerMainActivity" />
         <activity android:name=".activity.TestActivity" />
-        <activity android:name=".activity.ProfileCompanyActivity" />
-        <activity android:name=".activity.ProfileEngineerActivity" />
+        <activity android:name=".activity.detailProfile.ProfileCompanyActivity" />
+        <activity android:name=".activity.detailProfile.ProfileEngineerActivity" />
         <activity android:name=".activity.LoginResetActivity" />
         <activity android:name=".activity.ConfirmPasswordActivity" />
         <activity android:name=".activity.ResetPasswordActivity" />

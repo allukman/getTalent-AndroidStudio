@@ -44,7 +44,7 @@ class CompanyMainActivity : AppCompatActivity() {
         val searchFragment = SearchFragment()
         val projectFragment = ListProjectCompanyFragment()
 
-        currentFragment(companyProfileFragment)
+        currentFragment(homeFragment)
 
         binding.bottomNavigation.setOnNavigationItemSelectedListener {
             when (it.itemId) {
@@ -120,23 +120,24 @@ class CompanyMainActivity : AppCompatActivity() {
     }
 
     private fun getCompanyId() {
+        val accountId = prefHelper.getString(Constant.ACC_ID)
         coroutineScope.launch {
-            Log.d("android", "Start: ${Thread.currentThread().name}")
             val response = withContext(Dispatchers.IO) {
-
-                Log.d("android", "CallAPI : ${Thread.currentThread().name}")
                 try {
-                    service?.getCompanyIdByAccountId(prefHelper.getString(Constant.ACC_ID))
+                    service?.getCompanyIdByAccountId(accountId)
                 } catch (e:Throwable) {
                     e.printStackTrace()
                 }
             }
-            Log.d("android response", response.toString())
 
             if (response is GetCompanyIdResponse) {
-                Log.d("test", response.toString())
                 saveSession(response.data.comId)
             }
         }
+    }
+
+    override fun onDestroy() {
+        coroutineScope.cancel()
+        super.onDestroy()
     }
 }

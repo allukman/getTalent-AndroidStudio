@@ -11,8 +11,13 @@ class Constant {
         const val ACC_EMAIL = "ACC_EMAIL"
         const val ACC_PASSWORD = "ACC_PASSWORD"
         const val ACC_LEVEL = "ACC_LEVEL"
+
         const val EN_ID = "EN_ID"
         const val COM_ID = "COM_ID"
+        const val EN_ID_CLICK = "EN_ID_CLICK"
+        const val PJ_ID_CLICK = "PJ_ID_CLICK"
+        const val PJ_NAME = "PJ_NAME"
+        const val HIRE_ID = "HIRE_ID"
 
     }
 }

@@ -5,11 +5,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import id.smartech.get_talent.R
+import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
 import id.smartech.get_talent.data.HireEngineerModel
 import id.smartech.get_talent.databinding.ItemHireBinding
 
-class ListHireAdapter : RecyclerView.Adapter<ListHireAdapter.hireHolder>() {
-    private var items = mutableListOf<HireEngineerModel>()
+class ListHireAdapter(private val items: ArrayList<HireEngineerModel>, private val onRecyclerViewClickListener: OnRecyclerViewClickListener) : RecyclerView.Adapter<ListHireAdapter.hireHolder>() {
+//    private var items = mutableListOf<HireEngineerModel>()
 
     fun addList(list : List<HireEngineerModel>) {
         items.clear()
@@ -43,6 +44,10 @@ class ListHireAdapter : RecyclerView.Adapter<ListHireAdapter.hireHolder>() {
         holder.binding.hirePrice.text = price
         holder.binding.hirePjDeadline.text = deadline
         holder.binding.hireStatus.text = item.hireStatus
+
+        holder.itemView.setOnClickListener {
+            onRecyclerViewClickListener.onRecyclerViewItemClicked(position)
+        }
 
     }
 }

@@ -2,7 +2,7 @@ package id.smartech.get_talent.activity.hire
 
 import com.google.gson.annotations.SerializedName
 
-data class HireResponse(val success : String, val message : String, val data : List<Hire>) {
+data class HireResponse(val success : Boolean, val message : String, val data : List<Hire>) {
     data class Hire(@SerializedName("hr_id") val hireId : String?,
                     @SerializedName("en_id") val engineerId : String?,
                     @SerializedName("pj_id") val projectId : String?,

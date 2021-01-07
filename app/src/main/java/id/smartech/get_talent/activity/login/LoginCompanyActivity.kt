@@ -58,11 +58,12 @@ class LoginCompanyActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun saveSession(accountId: String, token: String, level: String){
+    private fun saveSession(accountId: String, token: String, level: String, name: String){
         prefHelper.put( Constant.IS_LOGIN, true )
         prefHelper.put(Constant.ACC_ID, accountId)
         prefHelper.put(Constant.TOKEN, token)
         prefHelper.put(Constant.ACC_LEVEL, level)
+        prefHelper.put(Constant.ACC_NAMA, name)
     }
 
     private fun loginRequest(email: String, password: String) {
@@ -77,7 +78,7 @@ class LoginCompanyActivity : AppCompatActivity() {
 
             if (result is LoginResponse) {
                 if(result.success) {
-                    saveSession(result.data.accountId, result.data.token, result.data.accountLevel )
+                    saveSession(result.data.accountId, result.data.token, result.data.accountLevel , result.data.accountName)
                     Toast.makeText(this@LoginCompanyActivity, "Login success!", Toast.LENGTH_LONG).show()
                     moveIntent()
                 }
