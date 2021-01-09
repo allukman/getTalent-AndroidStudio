@@ -6,11 +6,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.smartech.get_talent.R
+import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
 import id.smartech.get_talent.data.ExperienceModel
 import id.smartech.get_talent.databinding.ItemExperienceBinding
 
-class ExperienceAdapter(): RecyclerView.Adapter<ExperienceAdapter.ExperienceHolder>(){
-   private var items = mutableListOf<ExperienceModel>()
+class ExperienceAdapter(private val items: ArrayList<ExperienceModel>, private val onRecyclerViewClickListener: OnRecyclerViewClickListener): RecyclerView.Adapter<ExperienceAdapter.ExperienceHolder>(){
+//   private var items = mutableListOf<ExperienceModel>()
 
     fun addList(list: List<ExperienceModel>) {
         items.clear()
@@ -49,5 +50,9 @@ class ExperienceAdapter(): RecyclerView.Adapter<ExperienceAdapter.ExperienceHold
             .placeholder(R.drawable.profile)
             .error(R.drawable.profile)
             .into(holder.binding.xpLogo)
+
+        holder.itemView.setOnClickListener {
+            onRecyclerViewClickListener.onRecyclerViewItemClicked(position)
+        }
     }
 }

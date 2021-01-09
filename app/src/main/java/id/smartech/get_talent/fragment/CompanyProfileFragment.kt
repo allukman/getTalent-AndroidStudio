@@ -70,9 +70,10 @@ class CompanyProfileFragment : Fragment() {
             }
             if (response is DetailCompanyResponse) {
                 if(response.success){
-                    setProfile(response.data.companyName,
+                    setProfile(response.data.companyEmail,
+                                response.data.companyName,
                                 response.data.companyBidang,
-                                response.data.companyPosition,
+                                response.data.companyCity,
                                 response.data.companyDescription,
                                 response.data.companyInstagram,
                                 response.data.companyGithub,
@@ -83,7 +84,8 @@ class CompanyProfileFragment : Fragment() {
         }
     }
 
-    private fun setProfile(comName: String, comField: String, domisili: String, deskripsi: String, instagram: String, github: String, linkedin: String, photo: String){
+    private fun setProfile(email: String, comName: String, comField: String, domisili: String, deskripsi: String, instagram: String, github: String, linkedin: String, photo: String){
+        binding.companyEmail.text = email
         binding.companyName.text = comName
         binding.companyField.text = comField
         binding.comLocation.text = domisili

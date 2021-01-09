@@ -7,16 +7,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import id.smartech.get_talent.ErrorActivity
 import id.smartech.get_talent.R
-import id.smartech.get_talent.data.Experience
+import id.smartech.get_talent.activity.detailProfile.ProfileEngineerActivity
+import id.smartech.get_talent.activity.experience.createExperience.CreateExperienceActivity
+import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
 import id.smartech.get_talent.data.ExperienceModel
 import id.smartech.get_talent.databinding.FragmentTalentExperienceBinding
 import id.smartech.get_talent.helper.ExperienceAdapter
-import id.smartech.get_talent.helper.ExperienceRecyclerViewAdapter
 import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.ExperienceApiService
 import id.smartech.get_talent.util.Constant
@@ -33,7 +34,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [TalentExperience.newInstance] factory method to
  * create an instance of this fragment.
  */
-class TalentExperienceFragment : Fragment() {
+class TalentExperienceFragment : Fragment(), OnRecyclerViewClickListener {
 
     private lateinit var binding: FragmentTalentExperienceBinding
     private lateinit var coroutineScope: CoroutineScope
@@ -51,16 +52,13 @@ class TalentExperienceFragment : Fragment() {
         prefHelper = PrefHelper(context = context)
         service = ApiClient.getApiClient(requireContext())!!.create(ExperienceApiService::class.java)
 
-//        val loremIpsum = getString(R.string.lorem_ipsum)
-//        val data = listOf<Experience>(
-//            Experience(R.drawable.tokopedia, "Web developer", "Google", "10 january 2019 - 9 desember 2020", loremIpsum),
-//            Experience(R.drawable.tokopedia, "Engineer", "Tokopedia", "10 january 2019 - 9 desember 2020", loremIpsum),
-//            Experience(R.drawable.tokopedia, "Android developer", "Instagram", "10 january 2019 - 9 desember 2020", loremIpsum),
-//            Experience(R.drawable.tokopedia, "Web developer", "Google", "10 january 2019 - 9 desember 2020", loremIpsum)
-//        )
-
         binding.experienceRecyclerView.layoutManager = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        binding.experienceRecyclerView.adapter = ExperienceAdapter()
+        binding.experienceRecyclerView.adapter = ExperienceAdapter(listExperience, this)
+
+        binding.btnAddExperience.setOnClickListener {
+            val intent = Intent (activity, CreateExperienceActivity::class.java)
+            activity!!.startActivity(intent)
+        }
 
         getExperienceByEngId()
         return binding.root
@@ -70,14 +68,14 @@ class TalentExperienceFragment : Fragment() {
         coroutineScope.launch {
             val response = withContext(Dispatchers.IO) {
                 try {
-                    service?.getExperienceByEngId(prefHelper.getString(Constant.EN_ID))
+                    service.getExperienceByEngId(prefHelper.getString(Constant.EN_ID))
                 } catch (e:Throwable) {
                     e.printStackTrace()
                 }
             }
 
             if(response is GetExperienceByEngIdResponse) {
-                val list = response.data?.map {
+                val list = response.data.map {
                     ExperienceModel(
                         it.experienceId,
                         it.engineerId,
@@ -91,13 +89,20 @@ class TalentExperienceFragment : Fragment() {
                 }
                 (binding.experienceRecyclerView.adapter as ExperienceAdapter).addList(list)
             } else {
-                Log.d("experience" , "experience tidak ada")
-            }
+            Log.d("experience" , "failed to get Experience")
+        }
         }
     }
 
     override fun onDestroy() {
         coroutineScope.cancel()
         super.onDestroy()
+    }
+
+    override fun onRecyclerViewItemClicked(position: Int) {
+        prefHelper.put(Constant.XP_ID_CLICK, listExperience[position].exId)
+        Toast.makeText(requireContext(), prefHelper.getString(Constant.XP_ID_CLICK), Toast.LENGTH_SHORT).show()
+//        val intent = Intent (activity, DetailExperienceActivity::class.java)
+//        activity!!.startActivity(intent)
     }
 }

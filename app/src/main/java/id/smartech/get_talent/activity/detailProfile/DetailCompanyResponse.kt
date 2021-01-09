@@ -5,6 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class DetailCompanyResponse (val success: Boolean, val message: String, val data: Data){
     data class Data(@SerializedName("com_id")val companyId: String,
                     @SerializedName("acc_id")val accountId: String,
+                    @SerializedName("acc_email")val companyEmail: String,
                     @SerializedName("com_company")val companyName: String,
                     @SerializedName("com_position")val companyPosition: String,
                     @SerializedName("com_bidang")val companyBidang: String,

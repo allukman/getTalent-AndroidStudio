@@ -10,7 +10,7 @@ import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
 import id.smartech.get_talent.data.EngineerModel
 import id.smartech.get_talent.databinding.ItemHomeBinding
 
-class HomeAdapter(private val items: ArrayList<EngineerModel>, private val  onRecyclerViewClickListener: OnRecyclerViewClickListener): RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
+class HomeAdapter(private val items: ArrayList<EngineerModel>, private val onRecyclerViewClickListener: OnRecyclerViewClickListener): RecyclerView.Adapter<HomeAdapter.HomeHolder>() {
     fun addList(list: List<EngineerModel>) {
         items.clear()
         items.addAll(list)

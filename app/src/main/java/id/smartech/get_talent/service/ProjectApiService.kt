@@ -1,7 +1,7 @@
 package id.smartech.get_talent.service
 
-import id.smartech.get_talent.activity.hire.HireStatusResponse
-import id.smartech.get_talent.activity.main.GetCompanyIdResponse
+
+import id.smartech.get_talent.activity.project.createProject.CreateResponse
 import id.smartech.get_talent.activity.project.ProjectIdResponse
 import id.smartech.get_talent.activity.project.ProjectResponse
 import okhttp3.MultipartBody
@@ -18,8 +18,12 @@ interface ProjectApiService {
 
     @Multipart
     @POST("/project")
-    suspend fun createProject(@Part photo: MultipartBody.Part,
-                              @Part("pjNamaProject") pjNamaProject: RequestBody,
-                              @Part("pjDeskripsi") pjDeskripsi: RequestBody,
-                              @Part("pjDeadline") pjDeadline: RequestBody) : HireStatusResponse
+    suspend fun AddProject(
+        @Part("comId")companyId: RequestBody,
+        @Part("pjNamaProject")projectName: RequestBody,
+        @Part("pjDeskripsi")projectDeskripsi: RequestBody,
+        @Part("pjDeadline")projectDeadline: RequestBody,
+        @Part photo: MultipartBody.Part
+
+    ) : CreateResponse
 }

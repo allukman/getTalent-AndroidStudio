@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.experience.createExperience.CreateExperienceActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/top_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            android:background="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:titleTextColor="@color/colorWhite">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:text="Add experience"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorWhite"
+                />
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/top_toolbar">
+
+            <TextView
+                android:id="@+id/tv_add_experience"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="24dp"
+                android:layout_marginVertical="24dp"
+                android:text="Add Experience"
+                android:textSize="18sp"
+                android:textColor="@color/colorPrimary"
+                android:fontFamily="sans-serif-light"
+                android:textStyle="bold"/>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginHorizontal="16dp"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp"
+                app:layout_constraintTop_toBottomOf="@id/tv_add_experience"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_xp_companyName"
+                        android:text="Company Name"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <EditText
+                        android:id="@+id/et_xp_companyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/rectangle_border"
+                        android:hint="PT. SEJAHTERA"
+                        android:inputType="text"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_xp_position"
+                        android:text="Job Position"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <EditText
+                        android:id="@+id/et_xp_position"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/rectangle_border"
+                        android:hint="Software engineer"
+                        android:inputType="text"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_xp_start"
+                        android:text="Start date"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <EditText
+                        android:id="@+id/et_xp_start"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/rectangle_border"
+                        android:hint="2020-01-05"
+                        android:inputType="text"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_xp_end"
+                        android:text="End date"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <EditText
+                        android:id="@+id/et_xp_end"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/rectangle_border"
+                        android:hint="2020-11-25"
+                        android:inputType="text"
+                        android:paddingHorizontal="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_xp_deskripsi"
+                        android:text="End date"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <EditText
+                        android:id="@+id/et_xp_deskripsi"
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:background="@drawable/rectangle_border"
+                        android:hint="Describe about your experience"
+                        android:gravity="top"
+                        android:inputType="textLongMessage|textMultiLine"
+                        android:paddingHorizontal="16dp"
+                        android:paddingVertical="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginHorizontal="16dp" />
+
+                    <TextView
+                        android:id="@+id/tv_xp_image"
+                        android:text="Experience Image"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginHorizontal="16dp"/>
+
+                    <ImageView
+                        android:id="@+id/image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginVertical="12dp"
+                        android:layout_marginHorizontal="24dp"
+                        android:src="@drawable/upload_image"/>
+
+                    <Button
+                        android:id="@+id/btn_add_experience"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Add Experience"
+                        android:layout_margin="20dp"
+                        android:textColor="@color/colorWhite"
+                        android:background="@drawable/rounded_button" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

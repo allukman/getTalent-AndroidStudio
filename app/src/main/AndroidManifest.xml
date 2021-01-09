@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -15,8 +16,10 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name=".activity.project.CreateProjectActivity"></activity>
-        <activity android:name=".activity.hire.ConfirmHireActivity" />
+        <activity android:name=".activity.experience.DetailExperienceActivity"></activity>
+        <activity android:name=".activity.portofolio.createPortofolio.CreatePortofolioActivity" />
+        <activity android:name=".activity.experience.createExperience.CreateExperienceActivity" />
+        <activity android:name=".activity.project.createProject.CreateProjectActivity" />
         <activity android:name=".activity.hire.AddHireActivity" />
         <activity android:name=".ErrorActivity" />
         <activity android:name=".activity.project.DetailProjectActivity" />

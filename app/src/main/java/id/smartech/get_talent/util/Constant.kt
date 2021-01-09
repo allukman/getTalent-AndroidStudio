@@ -18,6 +18,8 @@ class Constant {
         const val PJ_ID_CLICK = "PJ_ID_CLICK"
         const val PJ_NAME = "PJ_NAME"
         const val HIRE_ID = "HIRE_ID"
+        const val XP_ID_CLICK = "XP_ID_CLICK"
+        const val PR_ID_CLICK = "PR_ID_CLICK"
 
     }
 }

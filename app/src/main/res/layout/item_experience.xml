@@ -10,6 +10,7 @@
         android:paddingBottom="10dp"
         android:layout_marginBottom="10dp">
 
+
         <ImageView
             android:id="@+id/xp_logo"
             android:layout_width="50dp"
