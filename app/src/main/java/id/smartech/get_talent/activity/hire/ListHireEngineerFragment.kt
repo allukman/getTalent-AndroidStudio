@@ -2,7 +2,6 @@ package id.smartech.get_talent.activity.hire
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.smartech.get_talent.R
 import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
-import id.smartech.get_talent.activity.project.DetailProjectActivity
+import id.smartech.get_talent.activity.project.detailProject.DetailProjectActivity
 import id.smartech.get_talent.data.HireEngineerModel
 import id.smartech.get_talent.databinding.FragmentListHireEngineerBinding
 import id.smartech.get_talent.helper.ListHireAdapter

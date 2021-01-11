@@ -4,10 +4,8 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -16,7 +14,7 @@ import id.smartech.get_talent.activity.OnBoardActivity
 import id.smartech.get_talent.activity.home.HomeFragment
 import id.smartech.get_talent.databinding.ActivityCompanyMainBinding
 import id.smartech.get_talent.fragment.*
-import id.smartech.get_talent.activity.project.ListProjectCompanyFragment
+import id.smartech.get_talent.activity.project.listProject.ListProjectCompanyFragment
 import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.AccountService
 import id.smartech.get_talent.util.Constant
@@ -42,7 +40,8 @@ class CompanyMainActivity : AppCompatActivity() {
         val homeFragment = HomeFragment()
         val companyProfileFragment = CompanyProfileFragment()
         val searchFragment = SearchFragment()
-        val projectFragment = ListProjectCompanyFragment()
+        val projectFragment =
+            ListProjectCompanyFragment()
 
         currentFragment(homeFragment)
 
@@ -104,6 +103,7 @@ class CompanyMainActivity : AppCompatActivity() {
         builder.setMessage("Do you want to logout?")
         builder.setPositiveButton("Yes") { dialogInterface: DialogInterface, i: Int ->
             prefHelper.put( Constant.IS_LOGIN, false )
+            prefHelper.clear()
             moveIntent()
         }
         builder.setNegativeButton("No") { dialogInterface: DialogInterface, i: Int -> }

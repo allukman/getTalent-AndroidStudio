@@ -1,4 +1,4 @@
-package id.smartech.get_talent.activity.detailProfile
+package id.smartech.get_talent.activity.profile.detailProfile
 
 import com.google.gson.annotations.SerializedName
 

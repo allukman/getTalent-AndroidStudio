@@ -1,4 +1,4 @@
-package id.smartech.get_talent.activity.project
+package id.smartech.get_talent.activity.project.detailProject
 
 import com.google.gson.annotations.SerializedName
 

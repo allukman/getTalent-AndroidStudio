@@ -101,6 +101,8 @@ class TalentPortofolioFragment : Fragment(), PortofolioClickListener {
     override fun onPortofoliItemClicked(position: Int) {
         prefHelper.put(Constant.PR_ID_CLICK, listPortofolio[position].prId)
         Toast.makeText(requireContext(), prefHelper.getString(Constant.PR_ID_CLICK), Toast.LENGTH_SHORT).show()
+        val intent = Intent (activity, DetailPortofolioActivity::class.java)
+        activity!!.startActivity(intent)
     }
 
 }

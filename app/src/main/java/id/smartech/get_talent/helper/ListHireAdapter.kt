@@ -37,13 +37,14 @@ class ListHireAdapter(private val items: ArrayList<HireEngineerModel>, private v
         val price = "Budget : Rp. ${item.hirePrice}"
         val deadlineSplit = item.projectDeadline!!.split("T")[0]
         val deadline = "Deadline: $deadlineSplit"
+        val status = "Status: ${item.hireStatus}"
 
 
         holder.binding.hirePjName.text = item.projectName
         holder.binding.hirePjMessage.text = item.hireMessage
         holder.binding.hirePrice.text = price
         holder.binding.hirePjDeadline.text = deadline
-        holder.binding.hireStatus.text = item.hireStatus
+        holder.binding.hireStatus.text = status
 
         holder.itemView.setOnClickListener {
             onRecyclerViewClickListener.onRecyclerViewItemClicked(position)

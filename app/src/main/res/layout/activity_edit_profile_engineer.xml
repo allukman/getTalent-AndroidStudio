@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView
+<layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.profile.detailProfile.ProfileEngineerActivity">
+
+    <data>
+        <variable
+            name="model"
+            type="id.smartech.get_talent.activity.profile.detailProfile.DetailEngineerResponse.Data" />
+    </data>
+<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.detailProfile.ProfileEngineerActivity">
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -103,6 +110,7 @@
                     app:drawableStartCompat="@drawable/ic_location" />
 
                 <TextView
+                    android:id="@+id/job_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Freelancer"
@@ -111,28 +119,7 @@
                     android:layout_marginBottom="20dp"
                     android:layout_marginHorizontal="10dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/eng_location"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <!--Simpan & Batal-->
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_container2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="8dp"
-            app:cardElevation="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_container1">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                    app:layout_constraintTop_toBottomOf="@id/eng_location"/>
 
                 <Button
                     android:id="@+id/btn_edit_save"
@@ -145,7 +132,7 @@
                     android:layout_marginBottom="20dp"
                     android:textColor="@color/colorWhite"
                     android:background="@drawable/rounded_button"
-                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/job_type"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     />
@@ -166,6 +153,7 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
@@ -176,7 +164,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_container2">
+            app:layout_constraintTop_toBottomOf="@id/cv_container1">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -211,26 +199,7 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Nama lengkap"
-                    android:textSize="16sp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"/>
-
-                <EditText
-                    android:id="@+id/et_edit_eng_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="@string/eng_masukan_nama_lengkap"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:singleLine="true"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/rectangle_border"/>
-
-                <TextView
+                    android:id="@+id/tv_job_title_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/eng_job_title"
@@ -243,7 +212,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:hint="@string/eng_masukan_job_title"
+                    android:text="@{model.engineerJobTitle}"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:singleLine="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/rectangle_border"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Job type"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/et_edit_eng_job_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{model.engineerJobType}"
                     android:inputType="text"
                     android:padding="16dp"
                     android:singleLine="true"
@@ -263,7 +252,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:hint="@string/eng_masukan_domisili"
+                    android:text="@{model.engineerDomisili}"
                     android:inputType="text"
                     android:padding="16dp"
                     android:singleLine="true"
@@ -273,17 +262,57 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/eng_tempat_kerja"
+                    android:text="Instagram"
                     android:textSize="16sp"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="16dp"/>
 
                 <EditText
-                    android:id="@+id/et_edit_eng_job"
+                    android:id="@+id/et_edit_eng_instagram"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:hint="@string/eng_masukan_tempat_kerja"
+                    android:text="@{model.engineerInstagram}"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:singleLine="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/rectangle_border"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Github"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/et_edit_eng_github"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{model.engineerGithub}"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:singleLine="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/rectangle_border"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gitlab"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/et_edit_eng_gitlab"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{model.engineerGitlab}"
                     android:inputType="text"
                     android:padding="16dp"
                     android:singleLine="true"
@@ -301,12 +330,11 @@
                 <EditText
                     android:id="@+id/et_edit_eng_deskripsi"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="120dp"
                     android:layout_marginTop="5dp"
-                    android:hint="@string/et_tuliskan_deskripsi_singkat"
-                    android:inputType="text"
-                    android:maxLines="7"
-                    android:maxLength="150"
+                    android:text="@{model.engineerDeskripsi}"
+                    android:gravity="top"
+                    android:inputType="textLongMessage|textMultiLine"
                     android:padding="16dp"
                     android:layout_marginHorizontal="16dp"
                     android:layout_marginBottom="20dp"
@@ -380,154 +408,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_container7"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_container6">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="24sp"
-                    android:textColor="@color/colorBlack"
-                    android:text="Pengalaman kerja"
-                    android:layout_margin="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_container8"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="1dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_container7">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Posisi"
-                    android:textSize="16sp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"/>
-
-                <EditText
-                    android:id="@+id/et_edit_xp_position"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="@string/et_xp_posisi"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:singleLine="true"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/rectangle_border"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tv_xp_com_name"
-                    android:textSize="16sp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"/>
-
-                <EditText
-                    android:id="@+id/et_edit_xp_com_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="@string/pt_suka_maju"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:singleLine="true"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/rectangle_border"/>
-
-                <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/tv_xp_date"
-                android:textSize="16sp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="16dp"/>
-
-                <EditText
-                    android:id="@+id/et_edit_xp_date"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:hint="@string/january_2018"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:maxLines="7"
-                    android:maxLength="150"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/rectangle_border"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/eng_deskripsi_singkat"
-                    android:textSize="16sp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="16dp"/>
-
-                <EditText
-                    android:id="@+id/et_edit_xp_deskripsi"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="5dp"
-                    android:hint="@string/deskripsikan_pekerjaan_anda"
-                    android:inputType="text"
-                    android:padding="16dp"
-                    android:maxLines="7"
-                    android:maxLength="150"
-                    android:layout_marginHorizontal="16dp"
-                    android:background="@drawable/rectangle_border"/>
-
-                <View
-                    android:id="@+id/line"
-                    android:layout_height="1dp"
-                    android:layout_width="match_parent"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginVertical="32dp"
-                    android:background="@color/colorPrimary"
-                    />
-
-                <Button
-                    android:id="@+id/btn_add_xp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Tambah pengalaman kerja"
-                    android:layout_marginHorizontal="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:textColor="@color/colorWhite"
-                    android:background="@drawable/rectangle_button"/>
-
-
-
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+         </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

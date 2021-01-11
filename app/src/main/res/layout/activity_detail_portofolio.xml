@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.experience.DetailExperienceActivity">
+    tools:context=".activity.portofolio.DetailPortofolioActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:textAlignment="center"
-                    android:text="Detail experience"
+                    android:text="Detail Portofolio"
                     android:textSize="22sp"
                     android:textStyle="bold"
                     android:textColor="@color/colorWhite"
@@ -52,105 +52,131 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/detail_xp_photo"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:padding="8dp"
+                            android:id="@+id/detail_pr_photo"
+                            android:layout_width="250dp"
+                            android:layout_height="200dp"
+                            android:src="@drawable/portofolio1"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            android:src="@drawable/instagram"/>
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
 
                         <TextView
-                            android:id="@+id/detail_xp_companyName"
+                            android:id="@+id/detail_pr_appName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="20sp"
-                            android:text="PT. EKA CIPTA PERDANA"
                             android:textColor="@color/colorBlack"
-                            android:layout_marginHorizontal="16dp"
-                            android:layout_marginVertical="8dp"
-                            app:layout_constraintTop_toTopOf="@id/detail_xp_photo"
-                            app:layout_constraintLeft_toRightOf="@id/detail_xp_photo"/>
+                            android:text="Aplikasi Countdown timer"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/detail_pr_photo"/>
 
                         <TextView
-                            android:id="@+id/detail_xp_position"
+                            android:id="@+id/detail_pr_typeApp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="16sp"
-                            android:text="Software engineer"
-                            android:layout_marginVertical="8dp"
-                            app:layout_constraintLeft_toLeftOf="@id/detail_xp_companyName"
-                            app:layout_constraintTop_toBottomOf="@id/detail_xp_companyName"/>
-
-                        <TextView
-                            android:id="@+id/detail_xp_start_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:text="19 July 2019"
-                            android:textColor="@color/colorGrey"
-                            android:layout_marginTop="5dp"
-                            app:layout_constraintTop_toBottomOf="@id/detail_xp_position"
-                            app:layout_constraintLeft_toLeftOf="@id/detail_xp_position"/>
-                        <TextView
-                            android:id="@+id/detail_xp_end_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15sp"
-                            android:text="- 10 January 2020"
-                            android:textColor="@color/colorGrey"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="4dp"
-                            app:layout_constraintTop_toBottomOf="@id/detail_xp_position"
-                            app:layout_constraintLeft_toRightOf="@id/detail_xp_start_date"/>
-
-                        <TextView
-                            android:id="@+id/tv_desc"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Description : "
+                            android:text="Aplikasi mobile"
                             app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/detail_xp_photo"
-                            android:layout_margin="8dp"/>
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/detail_pr_appName"/>
 
                         <TextView
-                            android:id="@+id/detail_xp_deskripsi"
+                            android:id="@+id/publication"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Publication :"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginHorizontal="16dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/detail_pr_typeApp"/>
+
+                        <TextView
+                            android:id="@+id/detail_pr_pub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:text="https://countdown-timer.github.io/"
+                            android:layout_marginHorizontal="24dp"
+                            android:layout_marginTop="4dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/publication"/>
+
+                        <TextView
+                            android:id="@+id/repository"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Repository :"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginHorizontal="16dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/detail_pr_pub"/>
+
+                        <TextView
+                            android:id="@+id/detail_pr_repo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:text="https://github.com/sandhikagalih/simple"
+                            android:layout_marginHorizontal="24dp"
+                            android:layout_marginTop="4dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/repository"/>
+
+                        <TextView
+                            android:id="@+id/description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorBlack"
+                            android:text="Description :"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginHorizontal="16dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/detail_pr_repo"/>
+
+                        <TextView
+                            android:id="@+id/detail_pr_desc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="15sp"
+                            android:textSize="16sp"
                             android:text="@string/lorem_ipsum"
-                            android:textColor="@color/colorGrey"
-                            android:layout_marginVertical="16dp"
-                            android:layout_marginHorizontal="8dp"
-                            app:layout_constraintLeft_toLeftOf="@id/tv_desc"
-                            app:layout_constraintTop_toBottomOf="@id/tv_desc"/>
+                            android:layout_marginHorizontal="24dp"
+                            android:layout_marginTop="4dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/description"/>
 
                         <Button
-                            android:id="@+id/btn_detail_xp_delete"
+                            android:id="@+id/btn_detail_rp_delete"
                             android:layout_width="50dp"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorWhite"
                             android:background="@drawable/ic_delete"
                             android:layout_marginBottom="16dp"
+                            android:layout_marginTop="8dp"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/detail_xp_deskripsi"/>
+                            app:layout_constraintTop_toBottomOf="@id/detail_pr_desc"/>
+
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
 
                 <Button
-                    android:id="@+id/btn_detail_xp_update"
+                    android:id="@+id/btn_detail_rp_update"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Update Experience"
+                    android:text="Update Portofolio"
                     android:textColor="@color/colorWhite"
                     android:background="@drawable/rounded_button"
                     android:padding="16dp"
@@ -158,6 +184,7 @@
                     android:layout_marginHorizontal="16dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cardview_container"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

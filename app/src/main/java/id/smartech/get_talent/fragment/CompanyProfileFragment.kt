@@ -1,16 +1,14 @@
 package id.smartech.get_talent.fragment
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import id.smartech.get_talent.R
-import id.smartech.get_talent.activity.EditProfileCompanyActivity
-import id.smartech.get_talent.activity.detailProfile.DetailCompanyResponse
+import id.smartech.get_talent.activity.profile.editProfile.EditProfileCompanyActivity
+import id.smartech.get_talent.activity.profile.detailProfile.DetailCompanyResponse
 import id.smartech.get_talent.databinding.FragmentCompanyProfileBinding
 import id.smartech.get_talent.helper.WebviewActivity
 import id.smartech.get_talent.remote.ApiClient
@@ -18,7 +16,6 @@ import id.smartech.get_talent.service.CompanyApiService
 import id.smartech.get_talent.util.Constant
 import id.smartech.get_talent.util.PrefHelper
 import kotlinx.coroutines.*
-import retrofit2.create
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER

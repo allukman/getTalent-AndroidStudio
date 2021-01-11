@@ -1,13 +1,10 @@
-package id.smartech.get_talent.activity.detailProfile
+package id.smartech.get_talent.activity.profile.detailProfile
 
-import android.app.Activity
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import com.bumptech.glide.Glide
 import id.smartech.get_talent.R
@@ -18,7 +15,6 @@ import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.EngineerApiService
 import id.smartech.get_talent.util.Constant
 import id.smartech.get_talent.util.PrefHelper
-import kotlinx.android.synthetic.main.activity_profile_engineer.*
 import kotlinx.coroutines.*
 
 class ProfileEngineerActivity : AppCompatActivity() {

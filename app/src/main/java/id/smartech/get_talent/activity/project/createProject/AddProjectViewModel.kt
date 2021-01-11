@@ -2,8 +2,8 @@ package id.smartech.get_talent.activity.project.createProject
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import id.smartech.get_talent.activity.response.HelperResponse
 import id.smartech.get_talent.service.ProjectApiService
-import id.smartech.get_talent.util.PrefHelper
 import kotlinx.coroutines.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -36,7 +36,7 @@ class AddProjectViewModel : ViewModel(), CoroutineScope {
                     e.printStackTrace()
                 }
             }
-            if (result is CreateResponse) {
+            if (result is HelperResponse) {
                 Log.d("responseSuccess", result.toString())
             }
         }

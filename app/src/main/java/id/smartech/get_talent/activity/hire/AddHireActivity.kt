@@ -10,8 +10,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import id.smartech.get_talent.R
 import id.smartech.get_talent.activity.main.CompanyMainActivity
-import id.smartech.get_talent.activity.main.EngineerMainActivity
-import id.smartech.get_talent.activity.project.ProjectResponse
+import id.smartech.get_talent.activity.project.listProject.ProjectResponse
 import id.smartech.get_talent.data.ProjectCompanyModel
 import id.smartech.get_talent.databinding.ActivityAddHireBinding
 import id.smartech.get_talent.remote.ApiClient

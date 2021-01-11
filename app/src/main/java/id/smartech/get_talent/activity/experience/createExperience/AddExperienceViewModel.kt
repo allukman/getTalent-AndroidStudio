@@ -2,9 +2,8 @@ package id.smartech.get_talent.activity.experience.createExperience
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import id.smartech.get_talent.activity.project.createProject.CreateResponse
+import id.smartech.get_talent.activity.response.HelperResponse
 import id.smartech.get_talent.service.ExperienceApiService
-import id.smartech.get_talent.util.PrefHelper
 import kotlinx.coroutines.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
@@ -37,7 +36,7 @@ class AddExperienceViewModel: ViewModel(), CoroutineScope {
                     e.printStackTrace()
                 }
             }
-            if (result is CreateResponse) {
+            if (result is HelperResponse) {
                 Log.d("responseSuccess", result.toString())
             }
         }

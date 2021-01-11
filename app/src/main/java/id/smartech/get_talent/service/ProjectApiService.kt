@@ -1,9 +1,9 @@
 package id.smartech.get_talent.service
 
 
-import id.smartech.get_talent.activity.project.createProject.CreateResponse
-import id.smartech.get_talent.activity.project.ProjectIdResponse
-import id.smartech.get_talent.activity.project.ProjectResponse
+import id.smartech.get_talent.activity.response.HelperResponse
+import id.smartech.get_talent.activity.project.detailProject.ProjectIdResponse
+import id.smartech.get_talent.activity.project.listProject.ProjectResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -25,5 +25,5 @@ interface ProjectApiService {
         @Part("pjDeadline")projectDeadline: RequestBody,
         @Part photo: MultipartBody.Part
 
-    ) : CreateResponse
+    ) : HelperResponse
 }

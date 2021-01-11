@@ -96,6 +96,7 @@ class EngineerMainActivity : AppCompatActivity() {
         builder.setMessage("Do you want to logout?")
         builder.setPositiveButton("Yes") { dialogInterface: DialogInterface, i: Int ->
             prefHelper.put( Constant.IS_LOGIN, false )
+            prefHelper.clear()
             moveIntent()
         }
         builder.setNegativeButton("No") { dialogInterface: DialogInterface, i: Int -> }

@@ -2,8 +2,7 @@ package id.smartech.get_talent.activity.portofolio.createPortofolio
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
-import id.smartech.get_talent.activity.project.createProject.CreateResponse
-import id.smartech.get_talent.service.ExperienceApiService
+import id.smartech.get_talent.activity.response.HelperResponse
 import id.smartech.get_talent.service.PortofolioApiService
 import kotlinx.coroutines.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
@@ -40,7 +39,7 @@ class AddPortofolioViewModel: ViewModel(), CoroutineScope {
                     e.printStackTrace()
                 }
             }
-            if (result is CreateResponse) {
+            if (result is HelperResponse) {
                 Log.d("responseSuccess", result.toString())
             }
         }

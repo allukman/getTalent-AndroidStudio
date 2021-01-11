@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.detailProfile.ProfileEngineerActivity">
+    tools:context=".activity.profile.detailProfile.ProfileEngineerActivity">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -1,7 +1,8 @@
 package id.smartech.get_talent.service
 
 import id.smartech.get_talent.activity.experience.GetExperienceByEngIdResponse
-import id.smartech.get_talent.activity.project.createProject.CreateResponse
+import id.smartech.get_talent.activity.experience.GetExperienceByXpIdResponse
+import id.smartech.get_talent.activity.response.HelperResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
@@ -10,6 +11,12 @@ interface ExperienceApiService {
 
     @GET("/experience/engineer/{id}")
     suspend fun getExperienceByEngId(@Path("id")engineerId: String?) : GetExperienceByEngIdResponse
+
+    @GET("experience/{id}")
+    suspend fun getExperienceByXpId(@Path("id")experienceId: String?) : GetExperienceByXpIdResponse
+
+    @DELETE("experience/{id}")
+    suspend fun deleteExperience(@Path("id")experienceId: String?): HelperResponse
 
     @Multipart
     @POST("/experience")
@@ -21,5 +28,5 @@ interface ExperienceApiService {
         @Part("exEnd")xpEndDate: RequestBody,
         @Part("exDeskripsi")xpDescription: RequestBody,
         @Part photo: MultipartBody.Part
-    ) : CreateResponse
+    ) : HelperResponse
 }

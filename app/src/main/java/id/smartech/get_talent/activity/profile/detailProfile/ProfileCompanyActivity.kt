@@ -1,4 +1,4 @@
-package id.smartech.get_talent.activity.detailProfile
+package id.smartech.get_talent.activity.profile.detailProfile
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -12,7 +12,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import id.smartech.get_talent.R
-import id.smartech.get_talent.activity.detailProfile.ProfileEngineerActivity
 import id.smartech.get_talent.activity.experience.createExperience.CreateExperienceActivity
 import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
 import id.smartech.get_talent.data.ExperienceModel
@@ -81,8 +80,8 @@ class TalentExperienceFragment : Fragment(), OnRecyclerViewClickListener {
                         it.engineerId,
                         it.experiencePosisi,
                         it.experienceCompany,
-                        it.experienceStart,
-                        it.experienceEnd,
+                        it.experienceStart.split("-")[0],
+                        it.experienceEnd.split("-")[0],
                         it.experienceDeskripsi,
                         it.experiencePhoto
                     )
@@ -102,7 +101,7 @@ class TalentExperienceFragment : Fragment(), OnRecyclerViewClickListener {
     override fun onRecyclerViewItemClicked(position: Int) {
         prefHelper.put(Constant.XP_ID_CLICK, listExperience[position].exId)
         Toast.makeText(requireContext(), prefHelper.getString(Constant.XP_ID_CLICK), Toast.LENGTH_SHORT).show()
-//        val intent = Intent (activity, DetailExperienceActivity::class.java)
-//        activity!!.startActivity(intent)
+        val intent = Intent (activity, DetailExperienceActivity::class.java)
+        activity!!.startActivity(intent)
     }
 }

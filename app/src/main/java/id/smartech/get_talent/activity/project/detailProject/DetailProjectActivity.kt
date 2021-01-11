@@ -1,9 +1,8 @@
-package id.smartech.get_talent.activity.project
+package id.smartech.get_talent.activity.project.detailProject
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -11,7 +10,6 @@ import com.bumptech.glide.Glide
 import id.smartech.get_talent.R
 import id.smartech.get_talent.activity.hire.HireStatusResponse
 import id.smartech.get_talent.activity.main.EngineerMainActivity
-import id.smartech.get_talent.activity.main.GetEngineerIdResponse
 import id.smartech.get_talent.databinding.ActivityDetailProjectBinding
 import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.HireService
