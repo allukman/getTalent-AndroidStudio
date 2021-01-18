@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.experience.createExperience.CreateExperienceActivity">
+    tools:context=".activity.experience.create_experience.CreateExperienceActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -157,7 +157,7 @@
 
                     <TextView
                         android:id="@+id/tv_xp_deskripsi"
-                        android:text="End date"
+                        android:text="Description"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16sp"
                         android:layout_width="wrap_content"

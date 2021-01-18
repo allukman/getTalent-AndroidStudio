@@ -87,4 +87,14 @@
     <string name="open">open</string>
     <string name="close">close</string>
 
+
+    <string name="i_engineer_name"><i>Engineer Name</i></string>
+    <string name="i_job_title"><i>Job title not set</i></string>
+    <string name="i_domicile"><i>Domicile not set</i></string>
+    <string name="i_description"><i>Description not set</i></string>
+    <string name="i_email"><i>Email not set</i></string>
+    <string name="i_instagram"><i>Instagram not set</i></string>
+    <string name="i_github"><i>Github not set</i></string>
+    <string name="i_gitlab"><i>Gitlab not set</i></string>
+
 </resources>

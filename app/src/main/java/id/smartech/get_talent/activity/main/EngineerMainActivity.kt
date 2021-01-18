@@ -7,16 +7,16 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import id.smartech.get_talent.R
 import id.smartech.get_talent.activity.OnBoardActivity
-import id.smartech.get_talent.activity.hire.ListHireEngineerFragment
+import id.smartech.get_talent.activity.hire.list_hire.ListHireEngineerFragment
 import id.smartech.get_talent.activity.home.HomeFragment
+import id.smartech.get_talent.activity.profile.profile.engineer.EngineerProfileFragment
+import id.smartech.get_talent.activity.search.SearchFragment
 import id.smartech.get_talent.databinding.ActivityMainBinding
-import id.smartech.get_talent.fragment.*
 import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.AccountService
 import id.smartech.get_talent.util.Constant
@@ -39,7 +39,8 @@ class EngineerMainActivity : AppCompatActivity() {
         setSupportActionBar(binding.topToolbar)
 
         val homeFragment = HomeFragment()
-        val engineerProfileFragment = EngineerProfileFragment()
+        val engineerProfileFragment =
+            EngineerProfileFragment()
         val searchFragment = SearchFragment()
         val hireFragment = ListHireEngineerFragment()
 
@@ -49,20 +50,20 @@ class EngineerMainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.ic_home -> {
                     currentFragment(homeFragment)
-                    binding.toolbarTitle.setText("Home   ")
+                    binding.toolbarTitle.text = "Home   "
                 }
                 R.id.ic_search -> {
                     currentFragment(searchFragment)
-                    binding.toolbarTitle.setText("Search  ")
+                    binding.toolbarTitle.text = "Search  "
                 }
                 R.id.ic_profile -> {
                     currentFragment(engineerProfileFragment)
-                    binding.toolbarTitle.setText("Profile  ")
+                    binding.toolbarTitle.text = "Profile  "
 
                 }
                 R.id.ic_project -> {
                     currentFragment(hireFragment)
-                    binding.toolbarTitle.setText("Hire  ")
+                    binding.toolbarTitle.text = "Hire  "
                 }
             }
             true
@@ -72,12 +73,11 @@ class EngineerMainActivity : AppCompatActivity() {
 
     private fun currentFragment(fragment: Fragment) =
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fl_wrapper, fragment)
-            commit()
+            replace(R.id.fl_wrapper, fragment).commit()
         }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater?.inflate(R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
 
@@ -118,7 +118,7 @@ class EngineerMainActivity : AppCompatActivity() {
         coroutineScope.launch {
             val response = withContext(Dispatchers.IO) {
                 try {
-                    service?.getEngineerIdByAccountId(accountId)
+                    service.getEngineerIdByAccountId(accountId)
                 } catch (e:Throwable) {
                     e.printStackTrace()
                 }

@@ -1,8 +1,9 @@
 package id.smartech.get_talent.service
 
-import id.smartech.get_talent.activity.hire.CreateHireResponse
-import id.smartech.get_talent.activity.hire.HireResponse
-import id.smartech.get_talent.activity.hire.HireStatusResponse
+import id.smartech.get_talent.activity.hire.response_hire.CreateHireResponse
+import id.smartech.get_talent.activity.hire.response_hire.HireResponse
+import id.smartech.get_talent.activity.hire.response_hire.HireStatusResponse
+import id.smartech.get_talent.activity.hire.response_hire.GetHireByIdResponse
 import retrofit2.http.*
 
 interface HireService {
@@ -22,4 +23,7 @@ interface HireService {
     @PUT("hire/{id}")
     suspend fun updateStatus(@Path("id")hireId: String?,
                             @Field("hr_status")hireStatus: String?): HireStatusResponse
+
+    @GET("/hire/{id}")
+    suspend fun getHireById(@Path("id")hireId: String?): GetHireByIdResponse
 }

@@ -15,6 +15,7 @@ import id.smartech.get_talent.activity.main.EngineerMainActivity
 import id.smartech.get_talent.activity.OnBoardActivity
 import id.smartech.get_talent.activity.register.RegisterEngineerActivity
 import id.smartech.get_talent.activity.ResetPasswordActivity
+import id.smartech.get_talent.activity.main.CompanyMainActivity
 import id.smartech.get_talent.databinding.ActivityLoginEngineerBinding
 import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.AccountService
@@ -39,6 +40,7 @@ class LoginEngineerActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         viewModel.setSharedPreferences(prefHelper)
+
 
         if (service != null) {
             viewModel.setLoginService(service)
@@ -75,7 +77,13 @@ class LoginEngineerActivity : AppCompatActivity() {
 
             if (it) {
                 Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
-                startActivity(Intent(this, EngineerMainActivity::class.java))
+                val level = prefHelper.getString(Constant.ACC_LEVEL)
+                if (level == "1") {
+                    startActivity(Intent(this, EngineerMainActivity::class.java))
+                } else {
+                    startActivity(Intent(this, CompanyMainActivity::class.java))
+                }
+
 
                 finish()
             } else {

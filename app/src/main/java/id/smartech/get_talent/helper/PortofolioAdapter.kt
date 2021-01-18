@@ -6,8 +6,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import id.smartech.get_talent.R
-import id.smartech.get_talent.activity.home.OnRecyclerViewClickListener
-import id.smartech.get_talent.activity.portofolio.PortofolioClickListener
 import id.smartech.get_talent.data.PortofolioModel
 import id.smartech.get_talent.databinding.ItemPortofolioBinding
 

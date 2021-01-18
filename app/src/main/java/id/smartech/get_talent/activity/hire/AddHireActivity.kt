@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import id.smartech.get_talent.R
+import id.smartech.get_talent.activity.hire.response_hire.CreateHireResponse
 import id.smartech.get_talent.activity.main.CompanyMainActivity
 import id.smartech.get_talent.activity.project.listProject.ProjectResponse
 import id.smartech.get_talent.data.ProjectCompanyModel

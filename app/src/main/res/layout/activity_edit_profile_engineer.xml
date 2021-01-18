@@ -3,13 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.profile.detailProfile.ProfileEngineerActivity">
+    tools:context=".activity.profile.edit_profile.engineer.EditProfileEngineerActivity">
 
     <data>
         <variable
             name="model"
-            type="id.smartech.get_talent.activity.profile.detailProfile.DetailEngineerResponse.Data" />
+            type="id.smartech.get_talent.activity.profile.detail_profile.engineer.DetailEngineerResponse.Data" />
     </data>
+
 <ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,8 +20,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/progress"
+            android:layout_marginTop="350dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-        <!--Photo profile, edit, company name, location-->
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_container1"
             android:layout_width="match_parent"
@@ -135,22 +144,6 @@
                     app:layout_constraintTop_toBottomOf="@id/job_type"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    />
-
-                <Button
-                    android:id="@+id/btn_edit_cancel"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/batal"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginRight="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:textColor="@color/colorWhite"
-                    android:background="@drawable/rounded_button"
-                    app:layout_constraintTop_toBottomOf="@id/btn_edit_save"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
                     />
 
@@ -175,7 +168,7 @@
                     android:layout_height="match_parent"
                     android:textSize="24sp"
                     android:textColor="@color/colorBlack"
-                    android:text="@string/data_diri"
+                    android:text="Account"
                     android:layout_margin="10dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -192,6 +185,136 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_container3">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_acc_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/et_acc_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:inputType="text"
+                    android:text="@{model.accountName}"
+                    android:padding="16dp"
+                    android:singleLine="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/rectangle_border"/>
+
+                <TextView
+                    android:id="@+id/tv_acc_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/et_acc_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@{model.accountEmail}"
+                    android:inputType="text"
+                    android:padding="16dp"
+                    android:singleLine="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/rectangle_border"/>
+
+                <TextView
+                    android:id="@+id/tv_acc_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Phone"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/et_acc_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:inputType="text"
+                    android:text="@{model.accountPhone}"
+                    android:padding="16dp"
+                    android:singleLine="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:background="@drawable/rectangle_border"/>
+
+                <TextView
+                    android:id="@+id/tv_acc_password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Password"
+                    android:textSize="16sp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="16dp"/>
+
+                <EditText
+                    android:id="@+id/et_acc_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:inputType="textPassword"
+                    android:padding="16dp"
+                    android:singleLine="true"
+                    android:layout_marginHorizontal="16dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/rectangle_border"/>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_container5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_container4">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorBlack"
+                    android:text="@string/data_diri"
+                    android:layout_margin="10dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_container6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cv_container5">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -342,71 +465,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_container5"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_container4">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textSize="24sp"
-                    android:textColor="@color/colorBlack"
-                    android:text="@string/cv_skill"
-                    android:layout_margin="10dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cv_container6"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="16dp"
-            android:layout_marginTop="1dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_container5">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:layout_width="230dp"
-                    android:layout_height="wrap_content"
-                    android:hint="Javascript"
-                    android:background="@drawable/rectangle_border"
-                    android:padding="16dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginVertical="16dp"
-                    />
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Simpan"
-                    android:padding="17dp"
-                    android:textColor="@color/colorWhite"
-                    android:layout_marginHorizontal="10dp"
-                    android:layout_marginVertical="16dp"
-                    android:background="@drawable/rectangle_button"/>
-
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
 
          </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

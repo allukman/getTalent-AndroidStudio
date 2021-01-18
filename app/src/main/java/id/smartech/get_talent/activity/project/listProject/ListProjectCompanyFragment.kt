@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -86,6 +87,8 @@ class ListProjectCompanyFragment : Fragment(), OnRecyclerViewClickListener, List
     }
 
     override fun onRecyclerViewItemClicked(position: Int) {
+        prefHelper.put(Constant.PJ_ID_CLICK, listProject[position].projectId)
+        Toast.makeText(activity, Constant.PJ_ID_CLICK, Toast.LENGTH_SHORT).show()
         moveIntent()
     }
 

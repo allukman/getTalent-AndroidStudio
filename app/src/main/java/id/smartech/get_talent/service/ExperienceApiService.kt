@@ -1,7 +1,7 @@
 package id.smartech.get_talent.service
 
-import id.smartech.get_talent.activity.experience.GetExperienceByEngIdResponse
-import id.smartech.get_talent.activity.experience.GetExperienceByXpIdResponse
+import id.smartech.get_talent.activity.experience.response_experience.GetExperienceByEngIdResponse
+import id.smartech.get_talent.activity.experience.response_experience.GetExperienceByXpIdResponse
 import id.smartech.get_talent.activity.response.HelperResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -28,5 +28,30 @@ interface ExperienceApiService {
         @Part("exEnd")xpEndDate: RequestBody,
         @Part("exDeskripsi")xpDescription: RequestBody,
         @Part photo: MultipartBody.Part
+    ) : HelperResponse
+
+    @Multipart
+    @PUT("/experience/{id}")
+    suspend fun updateExperience(
+        @Path("id")experienceId: String,
+        @Part("enId")engineerId: RequestBody,
+        @Part("exPosisi")position: RequestBody,
+        @Part("exCompany")companyName: RequestBody,
+        @Part("exStart")startDate: RequestBody,
+        @Part("exEnd")endDate: RequestBody,
+        @Part("exDeskripsi")desc: RequestBody,
+        @Part photo: MultipartBody.Part
+    ) : HelperResponse
+
+    @Multipart
+    @PUT("/experience/{id}")
+    suspend fun updateExperienceWithoutImage(
+        @Path("id")experienceId: String,
+        @Part("enId")engineerId: RequestBody,
+        @Part("exPosisi")position: RequestBody,
+        @Part("exCompany")companyName: RequestBody,
+        @Part("exStart")startDate: RequestBody,
+        @Part("exEnd")endDate: RequestBody,
+        @Part("exDeskripsi")desc: RequestBody
     ) : HelperResponse
 }

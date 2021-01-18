@@ -4,7 +4,7 @@ import id.smartech.get_talent.activity.login.LoginResponse
 import id.smartech.get_talent.activity.main.GetCompanyIdResponse
 import id.smartech.get_talent.activity.main.GetEngineerIdResponse
 import id.smartech.get_talent.activity.register.RegisterResponse
-import id.smartech.get_talent.util.PrefHelper
+import id.smartech.get_talent.activity.response.HelperResponse
 import retrofit2.http.*
 
 interface AccountService {
@@ -45,5 +45,19 @@ interface AccountService {
 
     @GET("/company/getId/{id}")
     suspend fun getCompanyIdByAccountId(@Path("id")comId: String? ): GetCompanyIdResponse
+
+//    //    Get Account
+//    @GET("/account/{id}")
+//    suspend fun getAccount(@Path("id")accountId: String?): GetAccountResponse
+
+    //    Update account
+    @FormUrlEncoded
+    @PUT("/account/{id}")
+    suspend fun updateAccount(@Path("id")accountId: String?,
+                              @Field("accName")accountName: String,
+                              @Field("accEmail")accountEmail: String,
+                              @Field("accPhone")accountPhone: String,
+                              @Field("accPassword")accountPassword: String,
+                              @Field("accLevel")accountLevel: String): HelperResponse
 
 }

@@ -69,8 +69,12 @@ class LoginCompanyActivity : AppCompatActivity() {
 
             if (it) {
                 Toast.makeText(this, "Login Success", Toast.LENGTH_LONG).show()
-                startActivity(Intent(this, CompanyMainActivity::class.java))
-
+                val level = prefHelper.getString(Constant.ACC_LEVEL)
+                if (level == "2") {
+                    startActivity(Intent(this, CompanyMainActivity::class.java))
+                } else {
+                    startActivity(Intent(this, EngineerMainActivity::class.java))
+                }
                 finish()
             } else {
                 Toast.makeText(this, "Username / password is wrong!", Toast.LENGTH_LONG).show()

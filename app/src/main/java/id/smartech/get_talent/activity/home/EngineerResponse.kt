@@ -2,7 +2,7 @@ package id.smartech.get_talent.activity.home
 
 import com.google.gson.annotations.SerializedName
 
-data class EngineerResponse(val success : String, val message : String, val data : List<Home>) {
+data class EngineerResponse(val success : Boolean, val message : String, val data : List<Home>) {
     data class Home(@SerializedName("en_id") val engineerId : String,
                        @SerializedName("ac_id") val accountId : String,
                        @SerializedName("ac_name") val accountName : String,

@@ -2,7 +2,7 @@ package id.smartech.get_talent.service
 
 
 import id.smartech.get_talent.activity.response.HelperResponse
-import id.smartech.get_talent.activity.project.detailProject.ProjectIdResponse
+import id.smartech.get_talent.activity.project.response_project.ProjectIdResponse
 import id.smartech.get_talent.activity.project.listProject.ProjectResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -24,6 +24,26 @@ interface ProjectApiService {
         @Part("pjDeskripsi")projectDeskripsi: RequestBody,
         @Part("pjDeadline")projectDeadline: RequestBody,
         @Part photo: MultipartBody.Part
+    ) : HelperResponse
 
+    @Multipart
+    @PUT("/project/{id}")
+    suspend fun UpdateProject(
+        @Path("id")projectId: String,
+        @Part("comId")companyId: RequestBody,
+        @Part("pjNamaProject")projectName: RequestBody,
+        @Part("pjDeskripsi")projectDeskripsi: RequestBody,
+        @Part("pjDeadline")projectDeadline: RequestBody,
+        @Part photo: MultipartBody.Part
+    ) : HelperResponse
+
+    @Multipart
+    @PUT("/project/{id}")
+    suspend fun UpdateProjectWithoutImage(
+        @Path("id")projectId: String,
+        @Part("comId")companyId: RequestBody,
+        @Part("pjNamaProject")projectName: RequestBody,
+        @Part("pjDeskripsi")projectDeskripsi: RequestBody,
+        @Part("pjDeadline")projectDeadline: RequestBody
     ) : HelperResponse
 }

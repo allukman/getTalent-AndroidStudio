@@ -12,9 +12,10 @@ import androidx.fragment.app.Fragment
 import id.smartech.get_talent.R
 import id.smartech.get_talent.activity.OnBoardActivity
 import id.smartech.get_talent.activity.home.HomeFragment
+import id.smartech.get_talent.activity.profile.profile.company.CompanyProfileFragment
 import id.smartech.get_talent.databinding.ActivityCompanyMainBinding
-import id.smartech.get_talent.fragment.*
 import id.smartech.get_talent.activity.project.listProject.ListProjectCompanyFragment
+import id.smartech.get_talent.activity.search.SearchFragment
 import id.smartech.get_talent.remote.ApiClient
 import id.smartech.get_talent.service.AccountService
 import id.smartech.get_talent.util.Constant
@@ -38,10 +39,10 @@ class CompanyMainActivity : AppCompatActivity() {
         setSupportActionBar(binding.topToolbar)
 
         val homeFragment = HomeFragment()
-        val companyProfileFragment = CompanyProfileFragment()
+        val companyProfileFragment =
+            CompanyProfileFragment()
         val searchFragment = SearchFragment()
-        val projectFragment =
-            ListProjectCompanyFragment()
+        val projectFragment = ListProjectCompanyFragment()
 
         currentFragment(homeFragment)
 
@@ -49,20 +50,20 @@ class CompanyMainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.ic_home -> {
                     currentFragment(homeFragment)
-                    binding.toolbarTitle.setText("Home   ")
+                    binding.toolbarTitle.text = "Home   "
                 }
                 R.id.ic_search -> {
                     currentFragment(searchFragment)
-                    binding.toolbarTitle.setText("Search  ")
+                    binding.toolbarTitle.text = "Search  "
                 }
                 R.id.ic_profile -> {
                     currentFragment(companyProfileFragment)
-                    binding.toolbarTitle.setText("Profile  ")
+                    binding.toolbarTitle.text = "Profile  "
 
                 }
                 R.id.ic_project -> {
                     currentFragment(projectFragment)
-                    binding.toolbarTitle.setText("Project  ")
+                    binding.toolbarTitle.text = "Project  "
                 }
             }
             true
@@ -84,7 +85,7 @@ class CompanyMainActivity : AppCompatActivity() {
         }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater?.inflate(R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
 
@@ -124,7 +125,7 @@ class CompanyMainActivity : AppCompatActivity() {
         coroutineScope.launch {
             val response = withContext(Dispatchers.IO) {
                 try {
-                    service?.getCompanyIdByAccountId(accountId)
+                    service.getCompanyIdByAccountId(accountId)
                 } catch (e:Throwable) {
                     e.printStackTrace()
                 }
